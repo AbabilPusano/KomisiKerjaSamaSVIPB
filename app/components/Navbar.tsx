@@ -1,62 +1,122 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const { t, language, setLanguage } = useLanguage();
 
-  return (
-    <nav className="bg-white shadow-sm py-4 px-4 md:px-8 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link href="/" className="flex items-center">
-          <h1 className="text-2xl font-bold text-blue-500">PPBJ Aceh</h1>
-        </Link>
+	return (
+		<nav className="bg-white shadow-lg">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="flex justify-between items-center h-16">
+					{/* Logo and Brand */}
+					<div className="flex items-center">
+						<Link href="/" className="flex items-center space-x-3">
+							<Image
+								src="/IPB.png"
+								alt="Logo IPB University"
+								width={40}
+								height={40}
+								className="object-contain"
+							/>
+							<span className="text-xl font-bold text-gray-900">
+								Vocational Collaboration Center
+							</span>
+						</Link>
+					</div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <Link href="/program" className="text-gray-600 hover:text-blue-500 transition-colors">Program</Link>
-          <Link href="/#how-it-works" className="text-gray-600 hover:text-blue-500 transition-colors">Alur ke Jepang</Link>
-          <Link href="/tentang-kami" className="text-gray-600 hover:text-blue-500 transition-colors">Tentang Kami</Link>
-          <Link href="https://www.jotform.com/app/252954455231458"
-                target="_blank" className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300">
-            Daftar Sekarang
-          </Link>
-        </div>
+					{/* Navigation Links */}
+					<div className="hidden md:flex space-x-8">
+						<Link
+							href="/"
+							className="text-gray-700 hover:text-blue-500 font-medium transition-colors duration-300"
+						>
+							{t("home")}
+						</Link>
+						<Link
+							href="/about"
+							className="text-gray-700 hover:text-blue-500 font-medium transition-colors duration-300"
+						>
+							{t("about")}
+						</Link>
+						<Link
+							href="/Programs"
+							className="text-gray-700 hover:text-blue-500 font-medium transition-colors duration-300"
+						>
+							{t("programs")}
+						</Link>
+						<Link
+							href="/contact"
+							className="text-gray-700 hover:text-blue-500 font-medium transition-colors duration-300"
+						>
+							{t("contact")}
+						</Link>
+					</div>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-gray-600 hover:text-blue-500 focus:outline-none"
-          >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
+					{/* Language Toggle */}
+					{/* Language Toggle */}
+					<div className="flex items-center space-x-3">
+						<button
+							onClick={() => setLanguage("id")}
+							className={`p-1 rounded ${
+								language === "id"
+									? "ring-2 ring-blue-500"
+									: "opacity-60 hover:opacity-100"
+							}`}
+							aria-label="Bahasa Indonesia"
+						>
+							<Image
+								src="/ID.png"
+								alt="Bahasa Indonesia"
+								width={24}
+								height={24}
+								className="object-contain"
+							/>
+						</button>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden mt-4 pb-4">
-          <div className="flex flex-col space-y-3 px-4">
-            <Link href="/program" className="text-gray-600 hover:text-blue-500 transition-colors" onClick={() => setIsMenuOpen(false)}>Program</Link>
-            <Link href="/#how-it-works" className="text-gray-600 hover:text-blue-500 transition-colors" onClick={() => setIsMenuOpen(false)}>Alur ke Jepang</Link>
-            <Link href="/tentang-kami" className="text-gray-600 hover:text-blue-500 transition-colors" onClick={() => setIsMenuOpen(false)}>Tentang Kami</Link>
-            <Link href="/kontak"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 w-full text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Daftar Sekarang
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
+						<button
+							onClick={() => setLanguage("en")}
+							className={`p-1 rounded ${
+								language === "en"
+									? "ring-2 ring-blue-500"
+									: "opacity-60 hover:opacity-100"
+							}`}
+							aria-label="English"
+						>
+							<Image
+								src="/ENG.png"
+								alt="English"
+								width={24}
+								height={24}
+								className="object-contain"
+							/>
+						</button>
+
+						{/* Mobile menu button */}
+						<div className="md:hidden flex items-center">
+							<button
+								type="button"
+								className="text-gray-700 hover:text-blue-500 focus:outline-none"
+								aria-label="Toggle menu"
+							>
+								<svg
+									className="h-6 w-6"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2}
+										d="M4 6h16M4 12h16M4 18h16"
+									/>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	);
 }
