@@ -355,10 +355,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 	const [language, setLanguage] = useState<Language>("id");
 
 	const t = (key: string): string => {
-		return (
-			translations[language][key as keyof (typeof translations)[Language]] ||
-			key
-		);
+		const value = translations[language][key as keyof (typeof translations)[Language]];
+		if (typeof value === 'string') {
+			return value;
+		}
+		return key;
 	};
 
 	const tArray = (key: string): string[] => {
