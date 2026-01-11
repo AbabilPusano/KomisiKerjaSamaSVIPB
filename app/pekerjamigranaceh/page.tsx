@@ -22,7 +22,7 @@ import {
 	Mail
 } from 'lucide-react';
 
-const App = () => {
+export default function PekerjaMigranAcehPage() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [activeTab, setActiveTab] = useState('pemula');
 	const [isRoadmapVisible, setIsRoadmapVisible] = useState(false);
@@ -728,5 +728,3 @@ const App = () => {
 		</div>
 	);
 };
-
-export default App;
