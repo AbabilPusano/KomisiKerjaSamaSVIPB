@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { LanguageProvider } from "./components/LanguageProvider";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import { useLanguage } from "./components/LanguageProvider";
+import { LanguageProvider } from "./vcc/components/LanguageProvider";
+import Navbar from "./vcc/components/Navbar";
+import Footer from "./vcc/components/Footer";
+import { useLanguage } from "./vcc/components/LanguageProvider";
 
 function HomePageContent() {
 	const { t, tArray } = useLanguage();

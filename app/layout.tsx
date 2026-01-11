@@ -1,5 +1,5 @@
-import "./globals.css";
-import { LanguageProvider } from "./components/LanguageProvider";
+import "./vcc/globals.css";
+import { LanguageProvider } from "./vcc/components/LanguageProvider";
 
 export const metadata = {
 	title: "PPBJ - Japanese Language Training Programs",

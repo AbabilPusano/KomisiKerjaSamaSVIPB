@@ -11,10 +11,10 @@ export default function Navbar() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	const navLinks = [
-		{ href: "/vcc", label: t("home") },
-		{ href: "/vcc/about", label: t("about") },
-		{ href: "/vcc/programs", label: t("programs") },
-		{ href: "/vcc/contacts", label: t("contact") },
+		{ href: "/", label: t("home") },
+		{ href: "/about", label: t("about") },
+		{ href: "/programs", label: t("programs") },
+		{ href: "/contacts", label: t("contact") },
 	];
 
 	return (

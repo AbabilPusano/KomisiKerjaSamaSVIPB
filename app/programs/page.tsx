@@ -143,7 +143,7 @@ export default function ProgramsPage() {
 								description={t(program.descKey)}
 								imageSrc={program.imageSrc}
 								buttonText={t("learnMore")}
-								href={`/vcc/programs/${program.key}`} // <--- ini arahinnya
+								href={`/programs/${program.key}`} // <--- ini arahinnya
 							/>
 						))}
 					</div>
