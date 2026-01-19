@@ -1,13 +1,12 @@
 "use client";
 
-import Navbar from "@/app/vcc/components/Navbar";
-import Footer from "@/app/vcc/components/Footer";
+import { Header, Footer } from "@/app/components";
 import { useLanguage } from "@/app/vcc/components/LanguageProvider";
 import Image from "next/image";
 import Link from "next/link";
 
 /* =======================
-   DATA PROGRAM (NEGARA)
+	 DATA PROGRAM (NEGARA)
 ======================= */
 type ProgramCard = {
 	key: string;
@@ -56,7 +55,7 @@ const PROGRAMS: ProgramCard[] = [
 ];
 
 /* =======================
-   CARD COMPONENT
+	 CARD COMPONENT
 ======================= */
 function ProgramCardItem({
 	title,
@@ -116,14 +115,14 @@ function ProgramCardItem({
 }
 
 /* =======================
-   PAGE
+	 PAGE
 ======================= */
 export default function ProgramsPage() {
 	const { t } = useLanguage();
 
 	return (
 		<div className="min-h-screen bg-white">
-			<Navbar />
+			<Header />
 			<section className="py-14 px-4 sm:px-6 lg:px-8">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}

@@ -1,13 +1,12 @@
 "use client";
 
-import Navbar from "@/app/vcc/components/Navbar";
-import Footer from "@/app/vcc/components/Footer";
+import { Header, Footer } from "@/app/components";
 import Link from "next/link";
 
 export default function JapanProgramsPage() {
 	return (
 		<div className="min-h-screen bg-white">
-			<Navbar />
+			<Header />
 			<main className="py-14 px-4 sm:px-6 lg:px-8">
 				<div className="max-w-6xl mx-auto">
 					{/* Header */}

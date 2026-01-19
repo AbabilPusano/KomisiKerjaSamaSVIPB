@@ -1,7 +1,6 @@
 "use client";
 
-import Navbar from "@/app/vcc/components/Navbar";
-import Footer from "@/app/vcc/components/Footer";
+import { Header, Footer } from "@/app/components";
 import { useLanguage } from "@/app/vcc/components/LanguageProvider";
 import Image from "next/image";
 
@@ -124,8 +123,9 @@ function AboutPageContent() {
 export default function AboutPage() {
 	return (
 		<div className="min-h-screen bg-white">
-			<Navbar />
+			<Header />
 			<AboutPageContent />
 		</div>
 	);
 }
+
