@@ -7,10 +7,7 @@ import {
 	Phone,
 	MapPin,
 	Send,
-	Facebook,
 	Instagram,
-	Linkedin,
-	Twitter,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -190,52 +187,35 @@ function HomePageContent() {
 						></iframe>
 					</div>
 
-					<div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg">
-						<h3 className="text-2xl font-bold text-slate-900 mb-6">
+					<div className="bg-gradient-to-br from-pink-50 via-purple-50 to-orange-50 rounded-2xl p-10 shadow-xl border border-pink-100">
+						<h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">
 							Ikuti Kami
 						</h3>
 
-						<div className="grid grid-cols-2 gap-4">
-							<a
-								href="#"
-								className="flex items-center gap-3 bg-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
-							>
-								<div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-700 transition-colors">
-									<Facebook className="w-6 h-6 text-white" />
-								</div>
-								<span className="font-semibold text-slate-700">Facebook</span>
-							</a>
+						<a
+							href="https://www.instagram.com/collaboration.svipb/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex flex-col items-center gap-4 bg-white p-8 rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group relative overflow-hidden"
+						>
+							{/* Gradient overlay on hover */}
+							<div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl"></div>
 
-							<a
-								href="#"
-								className="flex items-center gap-3 bg-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
-							>
-								<div className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center group-hover:bg-pink-700 transition-colors">
-									<Instagram className="w-6 h-6 text-white" />
-								</div>
-								<span className="font-semibold text-slate-700">Instagram</span>
-							</a>
+							{/* Icon container with gradient */}
+							<div className="relative w-20 h-20 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-2xl group-hover:rotate-6 transition-all duration-500">
+								<Instagram className="w-10 h-10 text-white" />
+							</div>
 
-							<a
-								href="#"
-								className="flex items-center gap-3 bg-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
-							>
-								<div className="w-12 h-12 bg-blue-700 rounded-lg flex items-center justify-center group-hover:bg-blue-800 transition-colors">
-									<Linkedin className="w-6 h-6 text-white" />
-								</div>
-								<span className="font-semibold text-slate-700">LinkedIn</span>
-							</a>
-
-							<a
-								href="#"
-								className="flex items-center gap-3 bg-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group"
-							>
-								<div className="w-12 h-12 bg-sky-500 rounded-lg flex items-center justify-center group-hover:bg-sky-600 transition-colors">
-									<Twitter className="w-6 h-6 text-white" />
-								</div>
-								<span className="font-semibold text-slate-700">Twitter</span>
-							</a>
-						</div>
+							{/* Text */}
+							<div className="text-center relative z-10">
+								<span className="font-bold text-xl text-slate-800 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:via-purple-500 group-hover:to-orange-500 transition-all duration-300">
+									Instagram
+								</span>
+								<p className="text-sm text-slate-500 mt-1 group-hover:text-slate-600 transition-colors">
+									@collaboration.svipb
+								</p>
+							</div>
+						</a>
 					</div>
 				</div>
 			</div>

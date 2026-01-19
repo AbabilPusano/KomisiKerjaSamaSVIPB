@@ -13,14 +13,13 @@ export default function Header() {
   // VCC pages that use horizontal logo
   const vccPages = ["/", "/about", "/programs", "/contacts"];
   const isVCCPage = vccPages.includes(pathname);
+  const isPPBJ = pathname == "/ppbj";
   const logoSrc = isVCCPage ? "/images/logo/vcc-horizontal.jpg" : "/images/logo/vcc-logo-only.jpg";
 
   const navLinks = [
     { href: "/", label: "Beranda" },
     { href: "/about", label: "Tentang Kami" },
     { href: "/programs", label: "Program" },
-    { href: "/ppbj", label: "PPBJ" },
-    { href: "/pekerjamigranaceh", label: "Pekerja Migran Aceh" },
     { href: "/contacts", label: "Kontak" },
   ];
 
@@ -40,9 +39,17 @@ export default function Header() {
               />
             </div>
           </Link>
+          {isPPBJ && <Link href="/ppbj" className="leading-tight">
+            <div className="font-semibold text-gray-900">
+              Pusat Pelatihan Bahasa Jepang
+            </div>
+            <div className="text-xs text-gray-600">
+              Sekolah Vokasi IPB University
+            </div>
+          </Link>}
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1 ml-auto mr-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

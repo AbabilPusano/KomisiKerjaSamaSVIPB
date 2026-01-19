@@ -17,30 +17,6 @@ type ProgramCard = {
 
 const PROGRAMS: ProgramCard[] = [
 	{
-		key: "vietnam",
-		titleKey: "programCountryVietnam",
-		descKey: "programDescVietnam",
-		imageSrc: "/flags/vietnam.png",
-	},
-	{
-		key: "thailand",
-		titleKey: "programCountryThailand",
-		descKey: "programDescThailand",
-		imageSrc: "/flags/thailand.png",
-	},
-	{
-		key: "newzealand",
-		titleKey: "programCountryNewZealand",
-		descKey: "programDescNewZealand",
-		imageSrc: "/flags/newzealand.png",
-	},
-	{
-		key: "malaysia",
-		titleKey: "programCountryMalaysia",
-		descKey: "programDescMalaysia",
-		imageSrc: "/flags/malaysia.png",
-	},
-	{
 		key: "japan",
 		titleKey: "programCountryJapan",
 		descKey: "programDescJapan",
@@ -51,6 +27,30 @@ const PROGRAMS: ProgramCard[] = [
 		titleKey: "programCountryChina",
 		descKey: "programDescChina",
 		imageSrc: "/flags/china.png",
+	},
+	{
+		key: "malaysia",
+		titleKey: "programCountryMalaysia",
+		descKey: "programDescMalaysia",
+		imageSrc: "/flags/malaysia.png",
+	},
+	{
+		key: "newzealand",
+		titleKey: "programCountryNewZealand",
+		descKey: "programDescNewZealand",
+		imageSrc: "/flags/newzealand.png",
+	},
+	{
+		key: "vietnam",
+		titleKey: "programCountryVietnam",
+		descKey: "programDescVietnam",
+		imageSrc: "/flags/vietnam.png",
+	},
+	{
+		key: "thailand",
+		titleKey: "programCountryThailand",
+		descKey: "programDescThailand",
+		imageSrc: "/flags/thailand.png",
 	},
 ];
 

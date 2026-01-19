@@ -13,7 +13,7 @@ function HomePageContent() {
 			{/* Hero Section */}
 			<section
 				className="relative h-screen px-4 bg-cover bg-center flex items-center"
-				style={{ backgroundImage: "url('/images/sv-buildings/102.png')" }}
+				style={{ backgroundImage: "url('/images/sv-buildings/102.webp')" }}
 			>
 				{/* Overlay */}
 				<div className="absolute inset-0 bg-black/60"></div>

@@ -28,7 +28,7 @@ function AboutPageContent() {
 								<div className="rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-100">
 									<div className="relative aspect-[3/4]">
 										<Image
-											src="/pr1.jpeg"
+											src="/images/sv-buildings/koin.webp"
 											alt={t("aboutImageAlt")}
 											fill
 											className="object-cover"

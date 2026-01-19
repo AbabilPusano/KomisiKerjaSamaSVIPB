@@ -126,7 +126,7 @@ const translations = {
 		aboutCardSubtitle: "Sekolah Vokasi IPB University",
 		aboutRoleTitle: "Peran Komisi Kerja Sama",
 		aboutRoleDesc:
-			"Komisi ini menjadi penghubung antara Sekolah Vokasi IPB University dengan mitra industri, institusi pendidikan, dan lembaga pemerintah—baik nasional maupun internasional.",
+			"Komisi ini menjadi penghubung antara Sekolah Vokasi IPB University dengan mitra industri, institusi pendidikan, dan lembaga pemerintah, baik nasional maupun internasional.",
 		aboutPoint1: "Mengelola inisiatif kerja sama dan implementasi program.",
 		aboutPoint2:
 			"Mendorong kegiatan magang, pertukaran pelajar, dan penelitian terapan.",
@@ -293,7 +293,7 @@ const translations = {
 		aboutCardSubtitle: "IPB Vocational School University",
 		aboutRoleTitle: "Our Role",
 		aboutRoleDesc:
-			"We serve as a strategic bridge between IPB Vocational School and partners from industry, educational institutions, and government—both nationally and internationally.",
+			"We serve as a strategic bridge between IPB Vocational School and partners from industry, educational institutions, and government, both nationally and internationally.",
 		aboutPoint1: "Manage cooperation initiatives and program implementation.",
 		aboutPoint2: "Support internships, student exchange, and applied research.",
 		aboutPoint3: "Support community service and international programs.",

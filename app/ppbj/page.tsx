@@ -56,7 +56,7 @@ export default function PPBJPage() {
 						{/* Hero Image */}
 						<div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
 							<img
-								src="/102.png"
+								src="images/chuo/rapat.webp"
 								alt="PPBJ SV IPB"
 								className="w-full h-full object-cover"
 							/>
