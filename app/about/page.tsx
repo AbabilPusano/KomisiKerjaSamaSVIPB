@@ -13,7 +13,7 @@ function AboutPageContent() {
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
 					<div className="text-center max-w-3xl mx-auto mb-12">
-						<h1 className="text-5xl font-extrabold text-slate-900 text-center mb-4">
+						<h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 text-center mb-4">
 							{t("aboutTitle")}
 						</h1>
 						<p className="text-slate-700 text-lg max-w-2xl mx-auto">
@@ -61,7 +61,7 @@ function AboutPageContent() {
 						{/* Right - Content */}
 						<div className="space-y-6">
 							{/* Main Card */}
-							<div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-6 md:p-7">
+							<div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 md:p-7">
 								<h2 className="text-xl font-semibold text-gray-900">
 									{t("aboutRoleTitle")}
 								</h2>
@@ -87,7 +87,7 @@ function AboutPageContent() {
 							</div>
 
 							{/* Vision Box */}
-							<div className="rounded-2xl bg-blue-50 border border-blue-100 p-6 md:p-7">
+							<div className="rounded-2xl bg-blue-50 border border-blue-100 p-5 md:p-7">
 								<h3 className="text-lg font-semibold text-gray-900">
 									{t("aboutCommitTitle")}
 								</h3>

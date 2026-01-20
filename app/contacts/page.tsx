@@ -76,7 +76,7 @@ function HomePageContent() {
 				{/* Email Card */}
 				<a
 					href="mailto:svipb-partneship@apps.ipb.ac.id"
-					className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+					className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
 				>
 					<div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-md group-hover:bg-blue-700 transition-colors">
 						<Mail className="w-8 h-8 text-white" />
@@ -91,7 +91,7 @@ function HomePageContent() {
 					href="https://www.instagram.com/collaboration.svipb/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="bg-gradient-to-br from-pink-50 via-purple-50 to-orange-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+					className="bg-gradient-to-br from-pink-50 via-purple-50 to-orange-50 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
 				>
 					<div className="w-16 h-16 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 rounded-xl flex items-center justify-center mb-6 shadow-md group-hover:shadow-lg transition-all">
 						<Instagram className="w-8 h-8 text-white" />
@@ -102,7 +102,7 @@ function HomePageContent() {
 				</a>
 
 				{/* Address Card */}
-				<div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+				<div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
 					<div className="w-16 h-16 bg-slate-600 rounded-xl flex items-center justify-center mb-6 shadow-md">
 						<MapPin className="w-8 h-8 text-white" />
 					</div>
@@ -119,7 +119,7 @@ function HomePageContent() {
 
 			{/* FORM - FULL WIDTH */}
 			<div className="mb-16">
-				<div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
+				<div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-slate-200">
 					<h2 className="text-3xl font-bold text-slate-900 mb-6">
 						Kirim Pesan
 					</h2>
@@ -227,7 +227,7 @@ function HomePageContent() {
 				</div>
 
 				{/* OFFICE HOURS */}
-				<div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl p-8 shadow-xl flex flex-col justify-center">
+				<div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl p-6 md:p-8 shadow-xl flex flex-col justify-center">
 					<h3 className="text-3xl font-bold mb-6 text-center">Jam Operasional</h3>
 					<div className="space-y-4">
 						<div className="text-center">

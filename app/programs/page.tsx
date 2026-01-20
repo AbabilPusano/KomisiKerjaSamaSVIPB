@@ -89,7 +89,7 @@ function ProgramCardItem({
 
 						{/* Nama Negara - LEBIH BESAR & BOLD */}
 						<div className="flex-1 min-w-0">
-							<h3 className="text-white font-extrabold text-3xl leading-tight break-words drop-shadow-md tracking-tight">
+							<h3 className="text-white font-extrabold text-2xl sm:text-3xl leading-tight break-words drop-shadow-md tracking-tight">
 								{title}
 							</h3>
 						</div>
@@ -97,7 +97,7 @@ function ProgramCardItem({
 				</div>
 
 				{/* BOTTOM – KETERANGAN */}
-				<div className="bg-gradient-to-b from-white to-slate-50 px-6 py-8 flex flex-col min-h-[210px]">
+				<div className="bg-gradient-to-b from-white to-slate-50 p-5 sm:px-6 sm:py-8 flex flex-col min-h-[210px]">
 					<p className="text-slate-600 leading-relaxed flex-1 text-base">
 						{description}
 					</p>
@@ -126,7 +126,7 @@ export default function ProgramsPage() {
 			<section className="py-14 px-4 sm:px-6 lg:px-8">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
-					<h1 className="text-5xl font-extrabold text-slate-900 text-center mb-4">
+					<h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 text-center mb-4">
 						{t("programsPageTitle")}
 					</h1>
 					<p className="text-slate-700 text-lg max-w-2xl mx-auto">

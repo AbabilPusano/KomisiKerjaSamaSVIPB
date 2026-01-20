@@ -67,7 +67,7 @@ export default function PPBJPage() {
 				</section>
 
 				{/* About Section */}
-				<section className="bg-white py-20">
+				<section className="bg-white py-12 lg:py-20">
 					<div className="container mx-auto px-4">
 						<div className="max-w-5xl mx-auto">
 							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8 text-center">
@@ -92,7 +92,7 @@ export default function PPBJPage() {
 				</section>
 
 				{/* Main Programs Section */}
-				<section id="programs-section" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+				<section id="programs-section" className="py-12 lg:py-20 bg-gradient-to-br from-gray-50 to-blue-50">
 					<div className="container mx-auto px-4">
 						<div className="text-center mb-16">
 							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -105,7 +105,7 @@ export default function PPBJPage() {
 
 						{/* Category 1: Program Pelatihan Bahasa Jepang */}
 						<div className="mb-20">
-							<div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+							<div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 lg:p-12">
 								<h3 className="text-3xl font-bold text-gray-900 mb-4">
 									Program Pelatihan Bahasa Jepang
 								</h3>
@@ -519,7 +519,7 @@ export default function PPBJPage() {
 
 						{/* Category 2: Program Chuo 3+2 */}
 						<div className="mb-20">
-							<div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-xl p-8 lg:p-12 border-2 border-orange-100">
+							<div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-xl p-6 md:p-8 lg:p-12 border-2 border-orange-100">
 								<div className="flex flex-col lg:flex-row gap-8 items-start">
 									<div className="flex-1">
 										<h3 className="text-3xl font-bold text-gray-900 mb-4">

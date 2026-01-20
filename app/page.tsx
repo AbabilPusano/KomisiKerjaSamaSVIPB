@@ -4,9 +4,34 @@ import Image from "next/image";
 import { LanguageProvider } from "./vcc/components/LanguageProvider";
 import { Header, Footer } from "@/app/components";
 import { useLanguage } from "./vcc/components/LanguageProvider";
+import { Instagram, ArrowRight, Compass, ArrowDown, Search, FileText, Send, CheckCircle } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
 function HomePageContent() {
 	const { t, tArray } = useLanguage();
+	const [isHowItWorksVisible, setIsHowItWorksVisible] = useState(false);
+	const howItWorksRef = useRef(null);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setIsHowItWorksVisible(true);
+				}
+			},
+			{ threshold: 0.2 }
+		);
+
+		if (howItWorksRef.current) {
+			observer.observe(howItWorksRef.current);
+		}
+
+		return () => {
+			if (howItWorksRef.current) {
+				observer.unobserve(howItWorksRef.current);
+			}
+		};
+	}, []);
 
 	return (
 		<>
@@ -21,7 +46,7 @@ function HomePageContent() {
 				{/* Content */}
 				<div className="relative max-w-7xl mx-auto">
 					<div className="text-center max-w-3xl mx-auto text-white">
-						<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+						<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
 							{t("heroTitle")}
 						</h1>
 
@@ -249,23 +274,77 @@ function HomePageContent() {
 					</div>
 
 					{/* CTA for More Details */}
-					<div className="mt-16 max-w-3xl mx-auto text-center">
-						<h3 className="text-2xl font-bold text-gray-900 mb-4">
-							{t("findOpportunities")}
-						</h3>
-						<p className="text-gray-600 mb-6">{t("findOpportunitiesDesc")}</p>
-						<a
-							href="/programs"
-							className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 inline-block"
-						>
-							{t("viewAllPrograms")}
-						</a>
+					{/* PROMOSI & SOCIAL MEDIA SECTION */}
+					<div className="mt-20">
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+							{/* Card 1: Explore Programs (Existing CTA Refined) */}
+							<div className="relative overflow-hidden rounded-3xl bg-blue-600 text-white p-8 md:p-10 shadow-xl flex flex-col justify-between group">
+								{/* Background Pattern */}
+								<div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-blue-500 opacity-20 group-hover:scale-110 transition-transform duration-500"></div>
+								<div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-48 h-48 rounded-full bg-blue-400 opacity-20 group-hover:scale-110 transition-transform duration-500"></div>
+
+								<div className="relative z-10">
+									<div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
+										<Compass className="w-8 h-8 text-white" />
+									</div>
+									<h3 className="text-2xl md:text-3xl font-bold mb-3">
+										{t("findOpportunities")}
+									</h3>
+									<p className="text-blue-100 text-lg mb-8 max-w-md">
+										{t("findOpportunitiesDesc")}
+									</p>
+								</div>
+
+								<a
+									href="/programs"
+									className="relative z-10 inline-flex items-center gap-2 bg-white text-blue-700 font-bold py-3 px-6 rounded-xl hover:bg-blue-50 transition-colors w-fit shadow-md"
+								>
+									{t("viewAllPrograms")}
+									<ArrowRight className="w-5 h-5" />
+								</a>
+							</div>
+
+							{/* Card 2: Instagram Promotion (New) */}
+							<a
+								href="https://www.instagram.com/collaboration.svipb/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 text-white p-8 md:p-10 shadow-xl flex flex-col justify-between group transition-all hover:shadow-2xl hover:-translate-y-1 block"
+							>
+								{/* Background Pattern */}
+								<div className="absolute top-0 right-0 w-full h-full opacity-10" style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "20px 20px" }}></div>
+								<div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/20 blur-3xl rounded-full group-hover:bg-white/30 transition-all"></div>
+
+								<div className="relative z-10">
+									<div className="flex justify-between items-start mb-6">
+										<div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+											<Instagram className="w-8 h-8 text-white" />
+										</div>
+										<span className="bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-medium border border-white/10">
+											Follow Us
+										</span>
+									</div>
+
+									<h3 className="text-2xl md:text-3xl font-bold mb-2">
+										Update Terbaru di Instagram
+									</h3>
+									<p className="text-white/90 text-lg mb-8">
+										Ikuti <span className="font-bold text-white">@collaboration.svipb</span> untuk informasi kerja sama, kegiatan, dan berita terkini.
+									</p>
+								</div>
+
+								<div className="relative z-10 flex items-center gap-3 font-bold text-white group-hover:gap-5 transition-all">
+									Lihat Profil Instagram
+									<ArrowRight className="w-5 h-5" />
+								</div>
+							</a>
+						</div>
 					</div>
 				</div>
 			</section>
 
 			{/* How It Works Section */}
-			<section id="how-it-works" className="py-16 md:py-24 px-4 bg-blue-50">
+			<section id="how-it-works" className="py-16 md:py-24 px-4 bg-blue-50 overflow-hidden">
 				<div className="max-w-7xl mx-auto">
 					<div className="text-center mb-16">
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -276,50 +355,57 @@ function HomePageContent() {
 						</p>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-						{/* Step 1 */}
-						<div className="text-center">
-							<div className="w-20 h-20 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-								1
-							</div>
-							<h3 className="text-xl font-bold text-gray-900 mb-3">
-								{t("step1")}
-							</h3>
-							<p className="text-gray-600">{t("step1Desc")}</p>
-						</div>
+					<div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative" ref={howItWorksRef}>
+						{[
+							{ icon: <Search className="w-8 h-8" />, titleKey: "step1", descKey: "step1Desc" },
+							{ icon: <FileText className="w-8 h-8" />, titleKey: "step2", descKey: "step2Desc" },
+							{ icon: <Send className="w-8 h-8" />, titleKey: "step3", descKey: "step3Desc" },
+							{ icon: <CheckCircle className="w-8 h-8" />, titleKey: "step4", descKey: "step4Desc" },
+						].map((step, index, array) => (
+							<div
+								key={index}
+								className={`relative flex flex-col items-center text-center transition-all duration-1000 transform ${isHowItWorksVisible
+									? "opacity-100 translate-y-0"
+									: "opacity-0 translate-y-20"
+									}`}
+								style={{ transitionDelay: `${index * 200}ms` }}
+							>
+								{/* Connector Lines/Arrows */}
+								{index < array.length - 1 && (
+									<>
+										{/* Desktop Arrow (Absolute to the right) */}
+										<div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-blue-200 -z-0"></div>
+										<div className="hidden md:block absolute top-[2.15rem] -right-[18%] z-10 text-blue-300">
+											<ArrowRight className="w-6 h-6" />
+										</div>
 
-						{/* Step 2 */}
-						<div className="text-center">
-							<div className="w-20 h-20 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-								2
-							</div>
-							<h3 className="text-xl font-bold text-gray-900 mb-3">
-								{t("step2")}
-							</h3>
-							<p className="text-gray-600">{t("step2Desc")}</p>
-						</div>
+										{/* Mobile Arrow (Below) */}
+										<div className="md:hidden absolute -bottom-8 left-1/2 -translate-x-1/2 text-blue-300 z-10">
+											<ArrowDown className="w-8 h-8 animate-bounce" />
+										</div>
+									</>
+								)}
 
-						{/* Step 3 */}
-						<div className="text-center">
-							<div className="w-20 h-20 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-								3
-							</div>
-							<h3 className="text-xl font-bold text-gray-900 mb-3">
-								{t("step3")}
-							</h3>
-							<p className="text-gray-600">{t("step3Desc")}</p>
-						</div>
+								<div className="group relative">
+									{/* Circle with Icon */}
+									<div className="w-20 h-20 bg-blue-600 text-white rounded-full flex items-center justify-center mb-6 shadow-lg shadow-blue-200 group-hover:scale-110 group-hover:bg-blue-700 transition-all duration-300 relative">
+										{step.icon}
+									</div>
 
-						{/* Step 4 */}
-						<div className="text-center">
-							<div className="w-20 h-20 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-								4
+									{/* Number Badge */}
+									<div className="absolute -top-2 -right-2 w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-sm border-2 border-blue-100 shadow-sm group-hover:scale-110 transition-transform z-10">
+										{index + 1}
+									</div>
+								</div>
+
+								<h3 className="text-xl font-bold text-gray-900 mb-3">
+									{t(step.titleKey)}
+								</h3>
+								<p className="text-gray-600 leading-relaxed px-4">
+									{t(step.descKey)}
+								</p>
 							</div>
-							<h3 className="text-xl font-bold text-gray-900 mb-3">
-								{t("step4")}
-							</h3>
-							<p className="text-gray-600">{t("step4Desc")}</p>
-						</div>
+						))}
 					</div>
 				</div>
 			</section>

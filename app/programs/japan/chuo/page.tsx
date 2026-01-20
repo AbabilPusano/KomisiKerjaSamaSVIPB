@@ -13,7 +13,7 @@ export default function ChuoPage() {
         <section className="container mx-auto px-4 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 International Program: 3+2 Scheme with Chuo Joho Institute
               </h1>
               <p className="text-lg text-gray-600">

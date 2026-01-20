@@ -12,7 +12,7 @@ export default function JapanProgramsPage() {
 				<div className="max-w-6xl mx-auto">
 					{/* Header */}
 					<div className="text-center mb-12">
-						<h1 className="text-5xl font-extrabold text-slate-900 mb-4">
+						<h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">
 							Program Jepang
 						</h1>
 						<p className="text-slate-700 text-lg max-w-2xl mx-auto">
@@ -31,7 +31,7 @@ export default function JapanProgramsPage() {
 										<div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
 										<div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full translate-y-12 -translate-x-12"></div>
 									</div>
-									<h2 className="text-white font-extrabold text-3xl leading-tight relative z-10 drop-shadow-md">
+									<h2 className="text-white font-extrabold text-2xl sm:text-3xl leading-tight relative z-10 drop-shadow-md">
 										Pekerja Migran Aceh
 									</h2>
 								</div>
@@ -48,7 +48,7 @@ export default function JapanProgramsPage() {
 								</div>
 
 								{/* Content */}
-								<div className="bg-gradient-to-b from-white to-slate-50 px-6 py-8 flex flex-col flex-1">
+								<div className="bg-gradient-to-b from-white to-slate-50 p-5 sm:px-6 sm:py-8 flex flex-col flex-1">
 									<p className="text-slate-600 leading-relaxed flex-1 text-base mb-6">
 										Program khusus untuk pekerja migran dari Aceh yang bekerja di Jepang.
 										Kami menyediakan layanan pendampingan, konsultasi, dan dukungan untuk
@@ -75,7 +75,7 @@ export default function JapanProgramsPage() {
 										<div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
 										<div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full translate-y-12 -translate-x-12"></div>
 									</div>
-									<h2 className="text-white font-extrabold text-3xl leading-tight relative z-10 drop-shadow-md">
+									<h2 className="text-white font-extrabold text-2xl sm:text-3xl leading-tight relative z-10 drop-shadow-md">
 										PPBJ
 									</h2>
 								</div>
@@ -91,7 +91,7 @@ export default function JapanProgramsPage() {
 								</div>
 
 								{/* Content */}
-								<div className="bg-gradient-to-b from-white to-slate-50 px-6 py-8 flex flex-col flex-1">
+								<div className="bg-gradient-to-b from-white to-slate-50 p-5 sm:px-6 sm:py-8 flex flex-col flex-1">
 									<p className="text-slate-600 leading-relaxed flex-1 text-base mb-6">
 										Program Penempatan Pekerja Berbasis Jepang (PPBJ) adalah program
 										resmi yang memfasilitasi penempatan tenaga kerja Indonesia ke Jepang.
@@ -118,7 +118,7 @@ export default function JapanProgramsPage() {
 										<div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
 										<div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full translate-y-12 -translate-x-12"></div>
 									</div>
-									<h2 className="text-white font-extrabold text-3xl leading-tight relative z-10 drop-shadow-md">
+									<h2 className="text-white font-extrabold text-2xl sm:text-3xl leading-tight relative z-10 drop-shadow-md">
 										Joint Degree 3+2 Chuo
 									</h2>
 								</div>
@@ -134,7 +134,7 @@ export default function JapanProgramsPage() {
 								</div>
 
 								{/* Content */}
-								<div className="bg-gradient-to-b from-white to-slate-50 px-6 py-8 flex flex-col flex-1">
+								<div className="bg-gradient-to-b from-white to-slate-50 p-5 sm:px-6 sm:py-8 flex flex-col flex-1">
 									<p className="text-slate-600 leading-relaxed flex-1 text-base mb-6">
 										Program Internasional skema 3+2 hasil kolaborasi dengan Chuo Joho Institute Jepang.
 										Program ini dirancang untuk membekali mahasiswa dengan kompetensi akademik, keterampilan kerja,

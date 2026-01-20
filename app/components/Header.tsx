@@ -39,7 +39,7 @@ export default function Header() {
               />
             </div>
           </Link>
-          {isPPBJ && <Link href="/programs/japan/ppbj" className="leading-tight">
+          {isPPBJ && <Link href="/programs/japan/ppbj" className="leading-tight hidden md:block">
             <div className="font-semibold text-gray-900">
               Pusat Pelatihan Bahasa Jepang
             </div>
