@@ -6,7 +6,7 @@ export const metadata = {
 	description:
 		"Empowering Japanese language learning through innovative programs and expert instruction",
 	icons: {
-		icon: "/images/logo/vcc-logo-only.svg",
+		icon: "/images/logo/vcc-logo-only.jpg",
 	},
 };
 
