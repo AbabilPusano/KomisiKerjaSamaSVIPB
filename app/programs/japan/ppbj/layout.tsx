@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { LanguageProvider } from "../vcc/components/LanguageProvider";
+import "../../../vcc/globals.css";
+import { LanguageProvider } from "../../../vcc/components/LanguageProvider";
 import { metadata } from "./metadata";
 
 export { metadata };

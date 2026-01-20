@@ -62,7 +62,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/ppbj"
+                  href="/programs/japan/ppbj"
                   className="text-gray-300 hover:text-white text-sm transition-colors duration-300"
                 >
                   PPBJ SV IPB

@@ -13,7 +13,7 @@ export default function Header() {
   // VCC pages that use horizontal logo
   const vccPages = ["/", "/about", "/programs", "/contacts"];
   const isVCCPage = vccPages.includes(pathname);
-  const isPPBJ = pathname == "/ppbj";
+  const isPPBJ = pathname == "/programs/japan/ppbj";
   const logoSrc = isVCCPage ? "/images/logo/vcc-horizontal.jpg" : "/images/logo/vcc-logo-only.jpg";
 
   const navLinks = [
@@ -39,7 +39,7 @@ export default function Header() {
               />
             </div>
           </Link>
-          {isPPBJ && <Link href="/ppbj" className="leading-tight">
+          {isPPBJ && <Link href="/programs/japan/ppbj" className="leading-tight">
             <div className="font-semibold text-gray-900">
               Pusat Pelatihan Bahasa Jepang
             </div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Header, Footer } from "@/app/components";
+import { Instagram, Mail } from "lucide-react";
 
 export default function PPBJPage() {
 	const [activeTab, setActiveTab] = useState<"intensif" | "reguler" | "jlpt">("reguler");
@@ -56,7 +57,7 @@ export default function PPBJPage() {
 						{/* Hero Image */}
 						<div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
 							<img
-								src="images/chuo/rapat.webp"
+								src="/images/chuo/rapat.webp"
 								alt="PPBJ SV IPB"
 								className="w-full h-full object-cover"
 							/>
@@ -163,7 +164,7 @@ export default function PPBJPage() {
 														<strong>Materi:</strong> Irodori A1, A2-1, A2-2; JLPT Taisaku N5 dan N4; Marugoto A2B1
 													</p>
 													<p className="text-2xl font-bold text-blue-600 mt-4">
-														Rp8.000.000 <span className="text-sm text-gray-600">(+Pendaftaran Rp250.000)</span>
+														Rp8.250.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
 												</div>
 												<div>
@@ -215,7 +216,7 @@ export default function PPBJPage() {
 														<strong>Materi:</strong> MNN 1 dan 2; Marugoto A1, A2-1, A2-2; JLPT Taisaku N5 dan N4; Langoal
 													</p>
 													<p className="text-2xl font-bold text-blue-600 mt-4">
-														Rp8.000.000 <span className="text-sm text-gray-600">(+Pendaftaran Rp250.000)</span>
+														Rp8.230.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
 												</div>
 												<div>
@@ -272,7 +273,7 @@ export default function PPBJPage() {
 														<strong>Materi:</strong> MNN 1 (1-16), Marugoto A1 (1-18), JLPT Taisaku N5, Langoal (100 Kanji)
 													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
-														Rp3.500.000 <span className="text-sm text-gray-600">(+Pendaftaran Rp250.000)</span>
+														Rp3.750.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
 												</div>
 												<div>
@@ -320,7 +321,7 @@ export default function PPBJPage() {
 														<strong>Materi:</strong> MNN 1 (16-30), Marugoto A2-1 (1-18), JLPT Taisaku N5, Langoal (98 Kanji + 100 Kanji N4)
 													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
-														Rp4.000.000 <span className="text-sm text-gray-600">(+Pendaftaran Rp250.000)</span>
+														Rp4.250.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
 												</div>
 												<div>
@@ -368,7 +369,7 @@ export default function PPBJPage() {
 														<strong>Materi:</strong> MNN 1 (30-50), Marugoto A2-2 (1-18), JLPT Taisaku N4, Langoal (209 Kanji N4)
 													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
-														Rp4.500.000 <span className="text-sm text-gray-600">(+Pendaftaran Rp250.000)</span>
+														Rp4.750.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
 												</div>
 												<div>
@@ -421,7 +422,7 @@ export default function PPBJPage() {
 														<strong>Materi:</strong> Nihongo Soomatome N5, JLPT Taisaku N5, Gokaku Dekiru N5-N4
 													</p>
 													<p className="text-2xl font-bold text-purple-600 mt-4">
-														Rp4.000.000 <span className="text-sm text-gray-600">(+Pendaftaran Rp250.000)</span>
+														Rp4.250.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
 												</div>
 												<div>
@@ -457,7 +458,7 @@ export default function PPBJPage() {
 														<strong>Materi:</strong> Nihongo Soomatome N4, JLPT Taisaku N4, Gokaku Dekiru N5-N4, Best Practice N4
 													</p>
 													<p className="text-2xl font-bold text-purple-600 mt-4">
-														Rp4.000.000 <span className="text-sm text-gray-600">(+Pendaftaran Rp250.000)</span>
+														Rp4.250.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
 												</div>
 												<div>
@@ -493,7 +494,7 @@ export default function PPBJPage() {
 														<strong>Materi:</strong> Nihongo Soomatome N3, JLPT Taisaku N3
 													</p>
 													<p className="text-2xl font-bold text-purple-600 mt-4">
-														Rp4.000.000 <span className="text-sm text-gray-600">(+Pendaftaran Rp250.000)</span>
+														Rp4.250.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
 												</div>
 												<div>
@@ -519,81 +520,45 @@ export default function PPBJPage() {
 						{/* Category 2: Program Chuo 3+2 */}
 						<div className="mb-20">
 							<div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-xl p-8 lg:p-12 border-2 border-orange-100">
-								<h3 className="text-3xl font-bold text-gray-900 mb-4">
-									Program Chuo 3+2 (Joint Degree)
-								</h3>
-								<h4 className="text-xl font-semibold text-gray-800 mb-6">
-									Kolaborasi Sekolah Vokasi IPB University dan Chuo Joho Institute Jepang: Skema 3+2 Siapkan Mahasiswa Bersaing di Pasar Kerja Global
-								</h4>
-
-								<div className="space-y-6 text-gray-700">
-									<div>
-										<h5 className="font-bold text-gray-900 mb-2">Deskripsi Program</h5>
-										<p>
-											Sekolah Vokasi IPB University membuka kesempatan bagi mahasiswa untuk mengikuti Program Internasional skema 3+2 hasil kolaborasi dengan Chuo Joho Institute Jepang. Program ini dirancang untuk membekali mahasiswa dengan kompetensi akademik, keterampilan kerja, serta pemahaman budaya dan etos kerja Jepang sebagai persiapan memasuki pasar kerja global.
+								<div className="flex flex-col lg:flex-row gap-8 items-start">
+									<div className="flex-1">
+										<h3 className="text-3xl font-bold text-gray-900 mb-4">
+											Program Chuo 3+2 (Joint Degree)
+										</h3>
+										<h4 className="text-xl font-semibold text-gray-800 mb-4">
+											Kolaborasi Sekolah Vokasi IPB University dan Chuo Joho Institute Jepang
+										</h4>
+										<p className="text-gray-700 text-lg leading-relaxed mb-6">
+											Sekolah Vokasi IPB University membuka kesempatan bagi mahasiswa untuk mengikuti Program Internasional skema 3+2. Program ini dirancang untuk membekali mahasiswa dengan kompetensi akademik, keterampilan kerja, serta pemahaman budaya Jepang.
 										</p>
+										<div className="space-y-3 mb-8">
+											<div className="flex items-center text-gray-700">
+												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+												<span>Skema 3 Tahun di IPB + 2.5 Tahun di Jepang</span>
+											</div>
+											<div className="flex items-center text-gray-700">
+												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+												<span>Peluang Beasiswa Nikkei & Yomiuri Shimbun</span>
+											</div>
+											<div className="flex items-center text-gray-700">
+												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+												<span>Persiapan Karier Global di Jepang</span>
+											</div>
+										</div>
+										<Link
+											href="/programs/japan/chuo"
+											className="inline-flex items-center px-8 py-4 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all transform hover:scale-105 shadow-lg group"
+										>
+											Lihat Detail Program
+											<span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+										</Link>
 									</div>
-
-									<div>
-										<h5 className="font-bold text-gray-900 mb-2">Skema Program 3+2</h5>
-										<p className="mb-3">Program ini merupakan pendidikan kolaboratif setara jenjang Diploma 4 (D4) dengan alur sebagai berikut:</p>
-										<ul className="space-y-2">
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">•</span>
-												<span>6 semester (3 tahun) studi di Sekolah Vokasi IPB University</span>
-											</li>
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">•</span>
-												<span>1 semester (6 bulan) program pembelajaran bahasa Jepang di Jepang</span>
-											</li>
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">•</span>
-												<span>Wisuda di IPB University</span>
-											</li>
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">•</span>
-												<span>4 semester (2 tahun) studi lanjutan di Chuo Joho Institute Jepang pada bidang Program Desain Bisnis</span>
-											</li>
-										</ul>
-									</div>
-
-									<div>
-										<h5 className="font-bold text-gray-900 mb-2">Fasilitas dan Dukungan Beasiswa</h5>
-										<p className="mb-3">Mahasiswa yang mengikuti program dan berangkat ke Jepang berkesempatan memperoleh dukungan pendanaan melalui skema sponsor/beasiswa, yaitu:</p>
-										<ul className="space-y-2">
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">•</span>
-												<span>Beasiswa Nikkei Newspaper</span>
-											</li>
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">•</span>
-												<span>Beasiswa Yomiuri Shimbun</span>
-											</li>
-										</ul>
-										<p className="mt-3">
-											Skema beasiswa ini ditujukan untuk mendukung pembiayaan selama masa studi dan persiapan kerja di Jepang, sekaligus memberikan kesempatan bagi mahasiswa untuk mendapatkan pengalaman internasional yang komprehensif.
-										</p>
-									</div>
-
-									<div>
-										<h5 className="font-bold text-gray-900 mb-2">Tujuan Program</h5>
-										<ul className="space-y-2">
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">✓</span>
-												<span>Mempersiapkan mahasiswa untuk melanjutkan studi di Jepang</span>
-											</li>
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">✓</span>
-												<span>Mempersiapkan mahasiswa untuk bekerja di Jepang</span>
-											</li>
-											<li className="flex items-start">
-												<span className="text-orange-600 mr-2">✓</span>
-												<span>Membekali mahasiswa dengan kompetensi dan keterampilan yang sesuai dengan kebutuhan pasar kerja Jepang</span>
-											</li>
-										</ul>
-										<p className="mt-3">
-											Melalui program ini, mahasiswa diharapkan tidak hanya unggul secara akademik, tetapi juga mampu beradaptasi dengan lingkungan kerja internasional serta memiliki daya saing global. Informasi lebih lanjut mengenai persyaratan, mekanisme seleksi, dan jadwal pendaftaran akan diumumkan melalui kanal resmi Sekolah Vokasi IPB University.
-										</p>
+									<div className="w-full lg:w-1/3 relative h-64 lg:h-auto min-h-[250px] rounded-xl overflow-hidden shadow-md">
+										<img
+											src="/images/programs/chuo.webp"
+											alt="Program Chuo 3+2"
+											className="w-full h-full object-cover"
+										/>
 									</div>
 								</div>
 							</div>
@@ -712,12 +677,60 @@ export default function PPBJPage() {
 							<div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
 								<div className="mb-4">
 									<h4 className="font-bold text-gray-900">Purwoko Hedianto</h4>
-									<p className="text-sm text-gray-600">Peserta kelas dasar 1 - Wirausaha</p>
+									<p className="text-sm text-gray-600">Peserta kelas dasar 1 - Dokter Hewan</p>
 								</div>
 								<p className="text-gray-700 italic">
 									"Saya belajar bahasa jepang di PPBJ SV IPB dengan pengajar professional termasuk native speaker, sehingga proses belajar menarik dan menyenangkan. Jika kesulitan, saya bisa langsung bertanya kepada sensei dan mendapatkan penjelasan yang jelas. Pembelajaran online fleksibel, didukung latihan dan percakapan yang meningkatkan kemampuan berbicara, sekaligus mengenai budaya jepang, mempersiapkan saya untuk berwisata, bekerja, atau melanjutkan studi ke Jepang."
 								</p>
 							</div>
+						</div>
+					</div>
+				</section>
+
+				{/* Kenali Kami Lebih Lanjut Section */}
+				<section className="py-20 bg-white">
+					<div className="container mx-auto px-4">
+						<div className="text-center mb-16">
+							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
+								Kenali Kami Lebih Lanjut
+							</h2>
+							<p className="text-lg text-gray-600 max-w-2xl mx-auto">
+								Ikuti aktivitas dan informasi terbaru seputar PPBJ di media sosial kami
+							</p>
+						</div>
+
+						<div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+							{/* Instagram Card */}
+							<a
+								href="https://www.instagram.com/ppbj_svipb/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="group bg-gradient-to-br from-pink-50 via-purple-50 to-orange-50 p-8 rounded-2xl shadow-lg border border-pink-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center"
+							>
+								<div className="w-20 h-20 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+									<Instagram className="w-10 h-10 text-white" />
+								</div>
+								<h3 className="text-2xl font-bold text-gray-900 mb-2">Instagram</h3>
+								<p className="text-gray-600 mb-4 font-medium">@ppbj_svipb</p>
+								<span className="text-sm font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
+									Klik untuk follow →
+								</span>
+							</a>
+
+							{/* Email Card */}
+							<a
+								href="mailto:kbj.svipb@gmail.com"
+								className="group bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center"
+							>
+								<div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+									<Mail className="w-10 h-10 text-white" />
+								</div>
+								<h3 className="text-2xl font-bold text-gray-900 mb-2">Email</h3>
+								<p className="text-gray-600 mb-4 font-medium">kbj.svipb@gmail.com</p>
+								<span className="text-sm font-semibold text-blue-600 group-hover:opacity-80 transition-opacity">
+									Klik untuk kirim email →
+								</span>
+							</a>
 						</div>
 					</div>
 				</section>
@@ -729,7 +742,7 @@ export default function PPBJPage() {
 				>
 					<div className="container mx-auto px-4 text-center">
 						<h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-							Kuota Terbatas (Maksimal 10-15 orang per kelas). Amankan kursimu sekarang!
+							Kuota Terbatas (Maksimal 20 orang per kelas). Amankan kursimu sekarang!
 						</h2>
 						<p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
 							Raih kesempatan emas untuk belajar bahasa Jepang dengan kurikulum standar internasional dan pengajar berpengalaman
