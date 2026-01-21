@@ -17,7 +17,7 @@ export default function JapanProgramsPage() {
 						</h1>
 						<p className="text-slate-700 text-lg max-w-2xl mx-auto">
 							Komisi Kerja Sama SV IPB menyediakan berbagai program untuk
-							mendukung mahasiswa Indonesia di New Zealand
+							mendukung mahasiswa/i SV IPB di New Zealand
 						</p>
 					</div>
 					{/* buat card underconstruction setelah comment ini */}

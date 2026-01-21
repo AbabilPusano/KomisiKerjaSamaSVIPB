@@ -13,11 +13,11 @@ export default function JapanProgramsPage() {
 					{/* Header */}
 					<div className="text-center mb-12">
 						<h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">
-							Program Vietnam
+							Halaman  dalam Pengembangan
 						</h1>
 						<p className="text-slate-700 text-lg max-w-2xl mx-auto">
-							Komisi Kerja Sama SV IPB menyediakan berbagai program untuk
-							mendukung mahasiswa/i SV IPB di Vietnam
+							Konten pada halaman ini sedang dalam proses pengembangan.
+							Pembaruan informasi akan dilakukan secara bertahap.
 						</p>
 					</div>
 					{/* buat card underconstruction setelah comment ini */}
@@ -30,11 +30,11 @@ export default function JapanProgramsPage() {
 								</div>
 							</div>
 							<h2 className="text-2xl font-bold text-slate-900 mb-2">
-								Program Dalam Pengembangan
+								Halaman Dalam Pengembangan
 							</h2>
 							<p className="text-slate-600">
 								Halaman ini masih dalam tahap pengembangan. Informasi program
-								Vietnam akan segera tersedia. Mohon menunggu update selanjutnya.
+								ini akan segera tersedia. Mohon menunggu update selanjutnya.
 							</p>
 						</div>
 					</div>

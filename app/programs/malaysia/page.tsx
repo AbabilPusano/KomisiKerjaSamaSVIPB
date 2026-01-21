@@ -4,7 +4,6 @@ import { Header, Footer } from "@/app/components";
 import Link from "next/link";
 import Image from "next/image";
 
-
 export default function JapanProgramsPage() {
 	return (
 		<div className="min-h-screen bg-white">
@@ -18,11 +17,10 @@ export default function JapanProgramsPage() {
 						</h1>
 						<p className="text-slate-700 text-lg max-w-2xl mx-auto">
 							Komisi Kerja Sama SV IPB menyediakan berbagai program untuk
-							mendukung mahasiswa Indonesia di Malaysia
+							mendukung mahasiswa/i SV IPB di Malaysia
 						</p>
 					</div>
 
-					
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 items-stretch">
 						<div className="rounded-3xl p-3 shadow-lg bg-gradient-to-br from-slate-100 to-slate-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full">
 							<div className="rounded-2xl overflow-hidden bg-white shadow-inner h-full flex flex-col">
@@ -51,15 +49,14 @@ export default function JapanProgramsPage() {
 								{/* Content */}
 								<div className="bg-gradient-to-b from-white to-slate-50 p-5 sm:px-6 sm:py-8 flex flex-col flex-1">
 									<p className="text-slate-600 leading-relaxed flex-1 text-base mb-6">
-										{/* Program khusus untuk pekerja migran dari Aceh yang bekerja
-										di Jepang. Kami menyediakan layanan pendampingan,
-										konsultasi, dan dukungan untuk memastikan kesejahteraan dan
-										perlindungan hak-hak pekerja migran Aceh selama bekerja di
-										Jepang. */}
+										Detail program ini masih dalam tahap pengembangan. Informasi
+										lengkap mengenai skema pendampingan, konsultasi, serta
+										bentuk dukungan yang diberikan akan segera diumumkan.
+										Silakan menunggu pembaruan selanjutnya.
 									</p>
 
 									<Link
-										href="/pekerjamigranaceh"
+										href="/programs/onprogres"
 										className="w-full rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 py-3.5 text-base font-semibold text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-center"
 									>
 										Selengkapnya
@@ -105,7 +102,7 @@ export default function JapanProgramsPage() {
 									</p>
 
 									<Link
-										href="/programs/japan/ppbj"
+										href="/programs/onprogres"
 										className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300 py-3.5 text-base font-semibold text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-center"
 									>
 										Selengkapnya
