@@ -350,7 +350,7 @@ export default function ChuoPage() {
                       Departure of Batch 2
                     </h3>
                     <p className="text-gray-700">
-                      Keberangkatan mahasiswa <strong>Ernesto</strong> dan <strong>Hauzan</strong> sebagai peserta Batch 2 Program Internasional 3+2 ke Jepang.
+                      Keberangkatan mahasiswa <strong>Ernest</strong> dan <strong>Hauzan</strong> sebagai peserta Batch 2 Program Internasional 3+2 ke Jepang.
                     </p>
                   </div>
                 </div>

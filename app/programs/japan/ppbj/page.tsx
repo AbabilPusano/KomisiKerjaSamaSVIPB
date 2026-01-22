@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Header, Footer } from "@/app/components";
 import { Instagram, Mail } from "lucide-react";
@@ -642,7 +643,24 @@ export default function PPBJPage() {
 						<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 							{/* Testimoni 1 */}
 							<div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
-								<div className="mb-4">
+								{/* Profile Image */}
+								<div className="flex justify-center mb-4">
+									<div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden border-4 border-blue-100">
+										{/* Placeholder for image - will be filled later */}
+										<div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+											<span className="text-3xl text-gray-400">👤</span>
+										</div>
+									</div>
+									{/* <div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden border-4 border-blue-100 relative">
+										<Image
+											src="/images/testimonials/jonathan.webp"
+											alt="Jonathan Devin Sanjaya"
+											fill
+											className="object-cover"
+										/>
+									</div> */}
+								</div>
+								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Jonathan Devin Sanjaya</h4>
 									<p className="text-sm text-gray-600">Peserta kelas pemula - SMA Pelita Harapan</p>
 								</div>
@@ -653,7 +671,24 @@ export default function PPBJPage() {
 
 							{/* Testimoni 2 */}
 							<div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
-								<div className="mb-4">
+								{/* Profile Image */}
+								<div className="flex justify-center mb-4">
+									<div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden border-4 border-blue-100">
+										{/* Placeholder for image - will be filled later */}
+										<div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+											<span className="text-3xl text-gray-400">👤</span>
+										</div>
+									</div>
+									{/* <div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden border-4 border-blue-100 relative">
+										<Image
+											src="/images/testimonials/boy.webp"
+											alt="Boy Mranata Sinaga"
+											fill
+											className="object-cover"
+										/>
+									</div> */}
+								</div>
+								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Boy Mranata Sinaga</h4>
 									<p className="text-sm text-gray-600">Peserta kelas dasar 1 - Mahasiswa SV IPB</p>
 								</div>
@@ -664,7 +699,18 @@ export default function PPBJPage() {
 
 							{/* Testimoni 3 */}
 							<div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
-								<div className="mb-4">
+								{/* Profile Image */}
+								<div className="flex justify-center mb-4">
+									<div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden border-4 border-blue-100 relative">
+										<Image
+											src="/images/testimonials/ernesto.webp"
+											alt="Ernesto Bagus"
+											fill
+											className="object-cover"
+										/>
+									</div>
+								</div>
+								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Ernesto Bagus</h4>
 									<p className="text-sm text-gray-600">Peserta Program 3+2, Penerima beasiswa NIKKEI</p>
 								</div>
@@ -675,7 +721,24 @@ export default function PPBJPage() {
 
 							{/* Testimoni 4 */}
 							<div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
-								<div className="mb-4">
+								{/* Profile Image */}
+								<div className="flex justify-center mb-4">
+									<div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden border-4 border-blue-100">
+										{/* Placeholder for image - will be filled later */}
+										<div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+											<span className="text-3xl text-gray-400">👤</span>
+										</div>
+									</div>
+									{/* <div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden border-4 border-blue-100 relative">
+										<Image
+											src="/images/testimonials/purwoko.webp"
+											alt="Purwoko Hedianto"
+											fill
+											className="object-cover"
+										/>
+									</div> */}
+								</div>
+								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Purwoko Hedianto</h4>
 									<p className="text-sm text-gray-600">Peserta kelas dasar 1 - Dokter Hewan</p>
 								</div>
