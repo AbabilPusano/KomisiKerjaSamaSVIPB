@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Abroad Programs - Redesign</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .search-bar {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 20px 60px 20px 60px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            font-size: 1.3em;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .filters {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+
+        .filters h3 {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+            background: white;
+            cursor: pointer;
+        }
+
+        .filter-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .sort-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .radio-option:hover {
+            background: #f5f5f5;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .flag-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .flag {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #dc143c;
+            border: 8px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .location-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        .card-content h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            font-size: 0.95em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f4ff;
+        }
+
+        .results-info {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                position: static;
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Study Abroad Programs</h1>
+            <p>Find the opportunity that suits you best</p>
+        </div>
+
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search program name or description...">
+        </div>
+
+        <div class="main-content">
+            <aside class="filters">
+                <h3>🎯 Filters</h3>
+                
+                <div class="filter-group">
+                    <label>Country</label>
+                    <select>
+                        <option>All Countries</option>
+                        <option>New Zealand</option>
+                        <option>Australia</option>
+                        <option>United Kingdom</option>
+                        <option>United States</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Study Program</label>
+                    <select>
+                        <option>All Majors</option>
+                        <option>Engineering</option>
+                        <option>Business</option>
+                        <option>Arts & Humanities</option>
+                        <option>Sciences</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Sort By</label>
+                    <div class="sort-options">
+                        <div class="radio-option">
+                            <input type="radio" name="sort" id="newest" checked>
+                            <label for="newest">Newest First</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="sort" id="oldest">
+                            <label for="oldest">Oldest First</label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div>
+                <div class="programs-grid">
+                    <!-- Program Card 1 -->
+                    <div class="program-card">
+                        <div class="card-image">
+                            <div class="location-badge">
+                                📍 New Zealand
+                            </div>
+                            <div class="flag-container">
+                                <div class="flag"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="date-badge">
+                                📅 2/3/2026
+                            </div>
+                            <h3>Teslagi Scholarship Program</h3>
+                            <p>An excellent opportunity to pursue your studies in New Zealand with full funding coverage including tuition, accommodation, and living expenses.</p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">Learn More</button>
+                                <button class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Program Card 2 - Example -->
+                    <div class="program-card">
+                        <div class="card-image">
+                            <div class="location-badge">
+                                📍 Australia
+                            </div>
+                            <div class="flag-container">
+                                <div class="flag" style="background: linear-gradient(to bottom, #00008B 50%, #FFD700 50%);"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="date-badge">
+                                📅 15/2/2026
+                            </div>
+                            <h3>Australian Excellence Award</h3>
+                            <p>Study at world-renowned Australian universities with comprehensive scholarship support for international students.</p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">Learn More</button>
+                                <button class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Program Card 3 - Example -->
+                    <div class="program-card">
+                        <div class="card-image">
+                            <div class="location-badge">
+                                📍 United Kingdom
+                            </div>
+                            <div class="flag-container">
+                                <div class="flag" style="background: linear-gradient(135deg, #012169 0%, #C8102E 50%, white 50%);"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="date-badge">
+                                📅 20/2/2026
+                            </div>
+                            <h3>British Council Scholarship</h3>
+                            <p>Prestigious scholarship program for graduate studies at top UK universities with mentorship opportunities.</p>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">Learn More</button>
+                                <button class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-info">
+                    Showing 3 programs
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
