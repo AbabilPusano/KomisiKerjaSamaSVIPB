@@ -397,7 +397,7 @@ export default function ProgramsPage() {
 												</div>
 
 												<h3 className="text-2xl font-bold text-slate-800 mb-3 leading-tight group-hover:text-blue-700 transition-colors">
-													<Link href={`#`} className="hover:underline">
+													<Link href={`/programs/${program.id}`} className="hover:underline">
 														{program.title}
 													</Link>
 												</h3>
@@ -425,7 +425,7 @@ export default function ProgramsPage() {
 												{/* Buttons */}
 												<div className="flex flex-wrap gap-3 mt-auto pt-5 border-t border-slate-50">
 													<Link
-														href={`#`}
+														href={`/programs/${program.id}`}
 														className="flex-1 min-w-[140px] bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm text-center"
 													>
 														Learn More
