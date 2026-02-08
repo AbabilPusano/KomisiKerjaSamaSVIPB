@@ -200,7 +200,8 @@ export default function ProgramsPage() {
 		// 3. Study Program
 		if (selectedStudy !== "all") {
 			filtered = filtered.filter(p =>
-				p.eligibleStudyPrograms?.includes(selectedStudy)
+				p.eligibleStudyPrograms?.includes(selectedStudy) ||
+				p.eligibleStudyPrograms?.includes("All Program Study")
 			);
 		}
 
