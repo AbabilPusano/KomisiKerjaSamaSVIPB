@@ -73,7 +73,41 @@ interface Program {
 	createdAt: string;
 	eligibleStudyPrograms: string[];
 	mainColor?: string; // New field
+	redirectUrl?: string; // New field for special programs
 }
+
+const specialPrograms = [
+	{
+		id: "special-ppbj",
+		title: "PPBJ",
+		thumbnail: "/images/programs/ppbj.webp",
+		shortDescription: `Program Penempatan Pekerja Berbasis Jepang (PPBJ) adalah program resmi yang memfasilitasi penempatan tenaga kerja Indonesia ke Jepang. Program ini mencakup pelatihan, sertifikasi, dan proses penempatan yang sesuai dengan standar pemerintah Jepang.`,
+		country: {
+			id: "cml6bnp27000504l1kx8zwp73",
+			name: "Jepang",
+			flagImage: "/images/programs/ppbj.webp",
+		},
+		createdAt: "2022-01-01",
+		eligibleStudyPrograms: ["All Program Study"],
+		mainColor: "#000000",
+		redirectUrl: "/japan/ppbj",
+	},
+	{
+		id: "special-pekerja-migran",
+		title: "Pekerja Migran Aceh",
+		thumbnail: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=1000",
+		shortDescription: `Program khusus untuk pekerja migran dari Aceh yang bekerja di Jepang. Kami menyediakan layanan pendampingan, konsultasi, dan dukungan untuk memastikan kesejahteraan dan perlindungan hak-hak pekerja migran Aceh selama bekerja di Jepang.`,
+		country: {
+			id: "cml6bnp27000504l1kx8zwp73",
+			name: "Jepang",
+			flagImage: "/images/programs/ppbj.webp",
+		},
+		createdAt: "2022-01-01",
+		eligibleStudyPrograms: ["Umum"],
+		mainColor: "#000000",
+		redirectUrl: "/pekerjamigranaceh",
+	}
+];
 
 const STUDY_PROGRAMS = [
 	"Program 1", "Program 2", "Program 3", "Program 4", "Program 5",
@@ -136,7 +170,13 @@ export default function ProgramsPage() {
 				// Fetch Programs
 				const programRes = await fetch("https://vccbe.vercel.app/api/programs?limit=100&isPublished=true");
 				const programData = await programRes.json();
-				if (programData.success) setAllPrograms(programData.data);
+
+				if (programData.success) {
+					// Merge API programs with Special Programs
+					// @ts-ignore - Ignoring type mistmatch for now if any
+					const combinedPrograms = [...specialPrograms, ...programData.data];
+					setAllPrograms(combinedPrograms);
+				}
 			} catch (error) {
 				console.error("Failed to fetch data", error);
 			} finally {
@@ -402,7 +442,7 @@ export default function ProgramsPage() {
 												</div>
 
 												<h3 className="text-2xl font-bold text-slate-800 mb-3 leading-tight group-hover:text-blue-700 transition-colors">
-													<Link href={`/programs/${program.id}`} className="hover:underline">
+													<Link href={program.redirectUrl || `/programs/${program.id}`} className="hover:underline">
 														{program.title}
 													</Link>
 												</h3>
@@ -430,14 +470,11 @@ export default function ProgramsPage() {
 												{/* Buttons */}
 												<div className="flex flex-wrap gap-3 mt-auto pt-5 border-t border-slate-50">
 													<Link
-														href={`/programs/${program.id}`}
+														href={program.redirectUrl || `/programs/${program.id}`}
 														className="flex-1 min-w-[140px] bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm text-center"
 													>
 														Learn More
 													</Link>
-													{/* <button className="flex-1 min-w-[140px] bg-white border-2 border-slate-200 hover:border-blue-200 text-slate-600 hover:bg-blue-50 hover:text-blue-700 font-semibold py-3.5 px-6 rounded-xl transition-all text-sm">
-														Save
-													</button> */}
 												</div>
 											</div>
 										</div>
