@@ -4,119 +4,53 @@ import { Header, Footer } from "@/app/components";
 import { useLanguage } from "@/app/vcc/components/LanguageProvider";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useMemo } from "react";
-import { Search, Filter, Calendar, MapPin, ChevronRight, BookOpen } from "lucide-react";
+import { useState, useEffect, useMemo, useRef } from "react";
+import { Search, Filter, Calendar, MapPin, ChevronRight, ChevronLeft, BookOpen } from "lucide-react";
 
 /* =======================
-	 DATA PROGRAM (NEGARA) - EXISTING
-======================= */
-type ProgramCard = {
-	key: string;
-	titleKey: string;
-	descKey: string;
-	imageSrc: string;
-};
-
-const PROGRAMS_CATEGORIES: ProgramCard[] = [
-	{
-		key: "japan",
-		titleKey: "programCountryJapan",
-		descKey: "programDescJapan",
-		imageSrc: "/flags/japan.png",
-	},
-	{
-		key: "china",
-		titleKey: "programCountryChina",
-		descKey: "programDescChina",
-		imageSrc: "/flags/china.png",
-	},
-	{
-		key: "malaysia",
-		titleKey: "programCountryMalaysia",
-		descKey: "programDescMalaysia",
-		imageSrc: "/flags/malaysia.png",
-	},
-	{
-		key: "newzealand",
-		titleKey: "programCountryNewZealand",
-		descKey: "programDescNewZealand",
-		imageSrc: "/flags/newzealand.png",
-	},
-	{
-		key: "vietnam",
-		titleKey: "programCountryVietnam",
-		descKey: "programDescVietnam",
-		imageSrc: "/flags/vietnam.png",
-	},
-	{
-		key: "thailand",
-		titleKey: "programCountryThailand",
-		descKey: "programDescThailand",
-		imageSrc: "/flags/thailand.png",
-	},
-];
-
-const STUDY_PROGRAMS = [
-	"Program 1", "Program 2", "Program 3", "Program 4", "Program 5",
-	"Program 6", "Program 7", "Program 8", "Program 9", "Program 10",
-	"Program 11", "Program 12", "Program 13", "Program 14", "Program 15",
-	"Program 16", "Program 17"
-];
-
-/* =======================
-	 CARD COMPONENT - EXISTING
+	 CARD COMPONENT - UPDATED
 ======================= */
 function ProgramCardItem({
 	title,
-	description,
 	imageSrc,
-	buttonText,
-	href,
+	onClick,
 }: {
 	title: string;
-	description: string;
 	imageSrc: string;
-	buttonText: string;
-	href: string;
+	onClick: () => void;
 }) {
 	return (
-		<div className="rounded-3xl p-3 shadow-lg bg-gradient-to-br from-slate-100 to-slate-200">
-			<div className="rounded-2xl overflow-hidden bg-white shadow-inner">
+		<div className="rounded-3xl p-3 shadow-lg bg-gradient-to-br from-slate-100 to-slate-200 h-full">
+			<div className="rounded-2xl overflow-hidden bg-white shadow-inner h-full flex flex-col">
 				{/* TOP – NEGARA */}
-				<div className="bg-gradient-to-br from-blue-600 to-blue-700 px-6 py-10 relative overflow-hidden">
+				<div className="bg-gradient-to-br from-blue-600 to-blue-700 px-6 py-8 relative overflow-hidden flex-1 flex flex-col items-center justify-center min-h-[160px]">
 					{/* Decorative background pattern */}
 					<div className="absolute inset-0 opacity-10">
 						<div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
 						<div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full translate-y-12 -translate-x-12"></div>
 					</div>
 
-					<div className="flex items-center gap-5 relative z-10">
+					<div className="relative z-10 flex flex-col items-center text-center gap-4">
 						{/* Bendera dengan border dan shadow */}
-						<div className="relative w-20 h-20 rounded-xl overflow-hidden bg-white shadow-lg shrink-0 ring-4 ring-white/30">
+						<div className="relative w-48 h-32 overflow-hidden bg-white shadow-lg shrink-0 ring-4 ring-white/30">
 							<Image src={imageSrc} alt={title} fill className="object-cover" />
 						</div>
 
-						{/* Nama Negara - LEBIH BESAR & BOLD */}
-						<div className="flex-1 min-w-0">
-							<h3 className="text-white font-extrabold text-2xl sm:text-3xl leading-tight break-words drop-shadow-md tracking-tight">
-								{title}
-							</h3>
-						</div>
+						{/* Nama Negara */}
+						<h3 className="text-white font-extrabold text-2xl leading-tight break-words drop-shadow-md tracking-tight">
+							{title}
+						</h3>
 					</div>
 				</div>
 
-				{/* BOTTOM – KETERANGAN */}
-				<div className="bg-gradient-to-b from-white to-slate-50 p-5 sm:px-6 sm:py-8 flex flex-col min-h-[210px]">
-					<p className="text-slate-600 leading-relaxed flex-1 text-base">
-						{description}
-					</p>
-
-					<Link
-						href={href}
-						className="mt-6 w-full rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300 py-3.5 text-base font-semibold text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-center"
+				{/* BOTTOM – ACTION */}
+				<div className="bg-white p-5 flex flex-col">
+					<button
+						onClick={onClick}
+						className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300 py-3 text-sm font-semibold text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-center"
 					>
-						{buttonText}
-					</Link>
+						Lihat Program yang Ada
+					</button>
 				</div>
 			</div>
 		</div>
@@ -127,6 +61,7 @@ function ProgramCardItem({
 interface Country {
 	id: string;
 	name: string;
+	flagImage: string;
 }
 
 interface Program {
@@ -139,6 +74,13 @@ interface Program {
 	eligibleStudyPrograms: string[];
 	mainColor?: string; // New field
 }
+
+const STUDY_PROGRAMS = [
+	"Program 1", "Program 2", "Program 3", "Program 4", "Program 5",
+	"Program 6", "Program 7", "Program 8", "Program 9", "Program 10",
+	"Program 11", "Program 12", "Program 13", "Program 14", "Program 15",
+	"Program 16", "Program 17"
+];
 
 /* =======================
 	 PAGE
@@ -156,6 +98,32 @@ export default function ProgramsPage() {
 	const [selectedStudy, setSelectedStudy] = useState("all");
 	const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>("newest");
 
+	const [currentPage, setCurrentPage] = useState(1);
+	const ITEMS_PER_PAGE = 5;
+
+	// Refs
+	const filterRef = useRef<HTMLElement>(null);
+	const carouselRef = useRef<HTMLDivElement>(null);
+
+	const scrollCarousel = (direction: 'left' | 'right') => {
+		if (carouselRef.current) {
+			const { current } = carouselRef;
+			const cardWidth = current.firstElementChild?.getBoundingClientRect().width || 300;
+			const gap = 32; // gap-8 = 2rem = 32px
+			const scrollAmount = cardWidth + gap;
+
+			current.scrollBy({
+				left: direction === 'left' ? -scrollAmount : scrollAmount,
+				behavior: 'smooth'
+			});
+		}
+	};
+
+	const scrollToFilter = (countryId: string) => {
+		setSelectedCountry(countryId);
+		filterRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	};
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -165,7 +133,7 @@ export default function ProgramsPage() {
 				const countryData = await countryRes.json();
 				if (countryData.success) setCountries(countryData.data);
 
-				// Fetch Programs (Fetch sufficient amount to filter client-side since API might not support all filters)
+				// Fetch Programs
 				const programRes = await fetch("https://vccbe.vercel.app/api/programs?limit=100&isPublished=true");
 				const programData = await programRes.json();
 				if (programData.success) setAllPrograms(programData.data);
@@ -179,8 +147,14 @@ export default function ProgramsPage() {
 		fetchData();
 	}, []);
 
+	// Reset page when filters change
+	useEffect(() => {
+		setCurrentPage(1);
+	}, [keyword, selectedCountry, selectedStudy, sortOrder]);
+
+
 	// Filter Logic
-	const displayedPrograms = useMemo(() => {
+	const filteredPrograms = useMemo(() => {
 		let filtered = [...allPrograms];
 
 		// 1. Keyword
@@ -212,10 +186,15 @@ export default function ProgramsPage() {
 			return sortOrder === "newest" ? dateB - dateA : dateA - dateB;
 		});
 
-		// 5. Limit to 5
-		return filtered.slice(0, 5);
+		return filtered;
 	}, [allPrograms, keyword, selectedCountry, selectedStudy, sortOrder]);
 
+	// Pagination Logic
+	const totalPages = Math.ceil(filteredPrograms.length / ITEMS_PER_PAGE);
+	const paginatedPrograms = filteredPrograms.slice(
+		(currentPage - 1) * ITEMS_PER_PAGE,
+		currentPage * ITEMS_PER_PAGE
+	);
 
 	return (
 		<div className="min-h-screen bg-slate-50">
@@ -232,24 +211,49 @@ export default function ProgramsPage() {
 						{t("programsPageSubtitle")}
 					</p>
 
-					{/* Category Cards */}
-					<div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-						{PROGRAMS_CATEGORIES.map((program) => (
-							<ProgramCardItem
-								key={program.key}
-								title={t(program.titleKey)}
-								description={t(program.descKey)}
-								imageSrc={program.imageSrc}
-								buttonText={t("learnMore")}
-								href={`/programs/${program.key}`}
-							/>
-						))}
+					{/* Country Carousel */}
+					<div className="mt-12 relative group/carousel">
+						{/* Arrows */}
+						{countries.length >= 4 && (
+							<>
+								<button
+									onClick={() => scrollCarousel('left')}
+									className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:scale-110 transition-all focus:outline-none opacity-0 group-hover/carousel:opacity-100 md:opacity-100 hidden md:flex"
+									aria-label="Previous slide"
+								>
+									<ChevronLeft className="w-6 h-6" />
+								</button>
+								<button
+									onClick={() => scrollCarousel('right')}
+									className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:scale-110 transition-all focus:outline-none opacity-0 group-hover/carousel:opacity-100 md:opacity-100 hidden md:flex"
+									aria-label="Next slide"
+								>
+									<ChevronRight className="w-6 h-6" />
+								</button>
+							</>
+						)}
+
+						<div
+							ref={carouselRef}
+							className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-8 pb-4"
+							style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+						>
+							{countries.map((country) => (
+								<div key={country.id} className="min-w-[100%] sm:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-22px)] snap-center flex-shrink-0">
+									<ProgramCardItem
+										title={country.name}
+										imageSrc={country.flagImage}
+										onClick={() => scrollToFilter(country.id)}
+									/>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 			</section>
 
 			{/* NEW SECTION: SEARCH & FILTER */}
-			<section className="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-200">
+			<section ref={filterRef} className="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-200">
 				<div className="max-w-7xl mx-auto">
 					<div className="text-center mb-10">
 						<h2 className="text-3xl font-bold text-slate-800">Available Programs</h2>
@@ -351,7 +355,7 @@ export default function ProgramsPage() {
 								<div className="text-center py-20 bg-white rounded-2xl shadow-sm border border-slate-100">
 									<p className="text-slate-500 animate-pulse">Loading programs...</p>
 								</div>
-							) : displayedPrograms.length === 0 ? (
+							) : paginatedPrograms.length === 0 ? (
 								<div className="text-center py-20 bg-white rounded-2xl shadow-sm border border-slate-100">
 									<p className="text-slate-500">No programs found matching your filters.</p>
 									<button
@@ -367,7 +371,7 @@ export default function ProgramsPage() {
 								</div>
 							) : (
 								<div className="flex flex-col gap-6">
-									{displayedPrograms.map(program => (
+									{paginatedPrograms.map(program => (
 										<div key={program.id} className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-300 border border-slate-100 flex flex-col md:flex-row">
 											{/* LEFT: Image Section */}
 											<div className="relative w-full md:w-[320px] h-64 md:h-auto shrink-0 overflow-hidden">
@@ -441,11 +445,35 @@ export default function ProgramsPage() {
 								</div>
 							)}
 
-							{!loading && displayedPrograms.length > 0 && (
-								<div className="mt-8 text-center">
-									<p className="text-sm text-slate-500">Showing top {displayedPrograms.length} results</p>
+							{/* PAGINATION CONTROLS */}
+							{!loading && totalPages > 1 && (
+								<div className="mt-12 flex justify-center items-center gap-4">
+									<button
+										onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+										disabled={currentPage === 1}
+										className={`px-4 py-2 rounded-lg font-semibold transition-colors ${currentPage === 1
+											? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+											: 'bg-white text-blue-600 border border-blue-200 hover:bg-blue-50'
+											}`}
+									>
+										Previous
+									</button>
+									<span className="text-slate-600 font-medium">
+										Page {currentPage} of {totalPages}
+									</span>
+									<button
+										onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+										disabled={currentPage === totalPages}
+										className={`px-4 py-2 rounded-lg font-semibold transition-colors ${currentPage === totalPages
+											? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+											: 'bg-white text-blue-600 border border-blue-200 hover:bg-blue-50'
+											}`}
+									>
+										Next
+									</button>
 								</div>
 							)}
+
 						</div>
 					</div>
 				</div>
