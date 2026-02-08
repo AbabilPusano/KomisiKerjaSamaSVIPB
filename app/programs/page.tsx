@@ -273,7 +273,7 @@ export default function ProgramsPage() {
 					<div className="flex flex-col lg:flex-row gap-8">
 						{/* LEFT: Filter Sidebar */}
 						<aside className="w-full lg:w-[320px] shrink-0 space-y-6">
-							<div className="bg-white p-8 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.05)] sticky top-6 border border-slate-100">
+							<div className="bg-white p-8 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.05)] sticky top-24 border border-slate-100">
 								<h3 className="flex items-center gap-2 mb-6 text-slate-800 text-2xl font-bold">
 									<span className="text-2xl">🎯</span> Filters
 								</h3>
