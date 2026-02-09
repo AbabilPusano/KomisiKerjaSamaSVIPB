@@ -90,7 +90,7 @@ const specialPrograms = [
 		createdAt: "2022-01-01",
 		eligibleStudyPrograms: ["All Program Study"],
 		mainColor: "#000000",
-		redirectUrl: "/japan/ppbj",
+		redirectUrl: "/programs/japan/ppbj",
 	},
 	{
 		id: "special-pekerja-migran",
