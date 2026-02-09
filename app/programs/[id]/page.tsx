@@ -43,6 +43,19 @@ interface GalleryItem {
   shortDescription: string;
 }
 
+interface CustomSectionCard {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+interface CustomSection {
+  title: string;
+  description: string;
+  layout: 'grid' | 'carousel';
+  cards: CustomSectionCard[];
+}
+
 interface Program {
   id: string;
   title: string;
@@ -57,10 +70,132 @@ interface Program {
   scholarships: ScholarshipItem[];
   contactPersons: ContactPerson[];
   gallery: GalleryItem[];
+  customSections?: CustomSection[];
   eligibleStudyPrograms: string[];
   mainColor?: string;
   createdAt: string;
 }
+
+const CustomSectionRenderer = ({ section, mainColor }: { section: CustomSection, mainColor: string }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const firstChild = current.firstElementChild as HTMLElement;
+      if (!firstChild) return;
+
+      const cardWidth = firstChild.offsetWidth;
+      const gap = 32; // 2rem matches gap-8
+      const scrollAmount = cardWidth + gap;
+
+      current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  return (
+    <section className="py-20 bg-white border-b border-slate-100">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+            {section.title}
+          </h2>
+          {section.description && (
+            <p className="text-lg text-slate-700 mb-12 text-center max-w-3xl mx-auto">
+              {section.description}
+            </p>
+          )}
+
+          {section.layout === 'grid' ? (
+            <div className="grid md:grid-cols-3 gap-8">
+              {section.cards.map((card, idx) => (
+                <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group">
+                  {card.image && (
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                      {card.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            // Carousel View
+            <div className="relative group/carousel">
+              {/* Left Button */}
+              <button
+                onClick={() => scroll('left')}
+                className="absolute left-[-20px] md:left-[-40px] top-1/2 -translate-y-1/2 -translate-x-0 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:scale-110 transition-all focus:outline-none opacity-0 group-hover/carousel:opacity-100 md:opacity-100"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+
+              {/* Scroll Container */}
+              <div
+                ref={scrollRef}
+                className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-8 pb-4"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {section.cards.map((card, idx) => (
+                  <div
+                    key={idx}
+                    className="min-w-[100%] md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group"
+                  >
+                    {card.image && (
+                      <div className="relative h-64 overflow-hidden">
+                        <Image
+                          src={card.image}
+                          alt={card.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                      </div>
+                    )}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">
+                        {card.title}
+                      </h3>
+                      <p className="text-slate-600 text-sm">
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Button */}
+              <button
+                onClick={() => scroll('right')}
+                className="absolute right-[-20px] md:right-[-40px] top-1/2 -translate-y-1/2 translate-x-0 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:scale-110 transition-all focus:outline-none opacity-0 group-hover/carousel:opacity-100 md:opacity-100"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default function ProgramDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
@@ -422,63 +557,28 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
           </div>
         </section> */}
 
+        {/* Custom Sections */}
+        {
+          program.customSections && program.customSections.map((section, idx) => (
+            <CustomSectionRenderer key={idx} section={section} mainColor={mainColor} />
+          ))
+        }
+
         {/* Gallery Section */}
-        {program.gallery && program.gallery.length > 0 && (
-          <section id="gallery" className="py-20 bg-white">
-            <div className="container mx-auto px-4">
-              <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
-                  Gallery
-                </h2>
+        {
+          program.gallery && program.gallery.length > 0 && (
+            <section id="gallery" className="py-20 bg-white">
+              <div className="container mx-auto px-4">
+                <div className="max-w-6xl mx-auto">
+                  <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
+                    Gallery
+                  </h2>
 
-                {program.gallery.length < 4 ? (
-                  // Grid View (< 4 items)
-                  <div className="grid md:grid-cols-3 gap-8">
-                    {program.gallery.map((item, idx) => (
-                      <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group">
-                        <div className="relative h-64 overflow-hidden">
-                          <Image
-                            src={item.imageUrl}
-                            alt={item.title}
-                            fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-700"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
-                        </div>
-                        <div className="p-6">
-                          <h3 className="text-xl font-bold text-slate-900 mb-2">
-                            {item.title}
-                          </h3>
-                          <p className="text-slate-600 text-sm">
-                            {item.shortDescription}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  // Carousel View (>= 4 items)
-                  <div className="relative group/carousel">
-                    {/* Left Button */}
-                    <button
-                      onClick={() => scrollGallery('left')}
-                      className="absolute left-[-40px] top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:scale-110 transition-all focus:outline-none opacity-0 group-hover/carousel:opacity-100 md:opacity-100"
-                      aria-label="Previous slide"
-                    >
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-
-                    {/* Scroll Container */}
-                    <div
-                      ref={galleryRef}
-                      className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-8 pb-4"
-                      style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                    >
+                  {program.gallery.length < 4 ? (
+                    // Grid View (< 4 items)
+                    <div className="grid md:grid-cols-3 gap-8">
                       {program.gallery.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="min-w-[100%] md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group"
-                        >
+                        <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group">
                           <div className="relative h-64 overflow-hidden">
                             <Image
                               src={item.imageUrl}
@@ -499,21 +599,65 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
                         </div>
                       ))}
                     </div>
+                  ) : (
+                    // Carousel View (>= 4 items)
+                    <div className="relative group/carousel">
+                      {/* Left Button */}
+                      <button
+                        onClick={() => scrollGallery('left')}
+                        className="absolute left-[-40px] top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:scale-110 transition-all focus:outline-none opacity-0 group-hover/carousel:opacity-100 md:opacity-100"
+                        aria-label="Previous slide"
+                      >
+                        <ChevronLeft className="w-6 h-6" />
+                      </button>
 
-                    {/* Right Button */}
-                    <button
-                      onClick={() => scrollGallery('right')}
-                      className="absolute right-[-40px] top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:scale-110 transition-all focus:outline-none opacity-0 group-hover/carousel:opacity-100 md:opacity-100"
-                      aria-label="Next slide"
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
-                  </div>
-                )}
+                      {/* Scroll Container */}
+                      <div
+                        ref={galleryRef}
+                        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-8 pb-4"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                      >
+                        {program.gallery.map((item, idx) => (
+                          <div
+                            key={idx}
+                            className="min-w-[100%] md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group"
+                          >
+                            <div className="relative h-64 overflow-hidden">
+                              <Image
+                                src={item.imageUrl}
+                                alt={item.title}
+                                fill
+                                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                              />
+                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                            </div>
+                            <div className="p-6">
+                              <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                {item.title}
+                              </h3>
+                              <p className="text-slate-600 text-sm">
+                                {item.shortDescription}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Right Button */}
+                      <button
+                        onClick={() => scrollGallery('right')}
+                        className="absolute right-[-40px] top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-700 hover:text-slate-900 hover:scale-110 transition-all focus:outline-none opacity-0 group-hover/carousel:opacity-100 md:opacity-100"
+                        aria-label="Next slide"
+                      >
+                        <ChevronRight className="w-6 h-6" />
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </section>
-        )}
+            </section>
+          )
+        }
 
         {/* Further Information / Contact */}
         <section className="bg-slate-900 text-white py-20 relative overflow-hidden">
@@ -588,7 +732,7 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
             </div>
           </div>
         </section>
-      </div>
+      </div >
       <Footer />
     </>
   );
