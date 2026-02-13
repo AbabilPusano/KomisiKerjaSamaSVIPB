@@ -104,18 +104,21 @@ const translations = {
 		testimonialsTitle: "Testimoni Mahasiswa",
 		testimonialsSubtitle:
 			"Cerita keberhasilan mahasiswa yang telah mengikuti program kolaborasi internasional",
-		testimonial1Name: "Budi Santoso",
-		testimonial1Role: "Mahasiswa Pertukaran di Jepang",
+		testimonial1Name: "M. Naufal Arkaan - MAB 59",
+		testimonial1Role: "Delegasi Shizouka Professional University of Agriculture Japan Internship Program",
+		testimonial1Image: "/images/testimonials/arkaan.webp",
 		testimonial1Text:
-			"Informasi dari VCC sangat membantu saya memilih program pertukaran yang tepat. Proses pendaftaran pun jelas dan terstruktur.",
-		testimonial2Name: "Siti Aminah",
-		testimonial2Role: "Peserta Magang di Thailand",
+			"Menjadi bagian dari program traineeship di Shizuoka Professional University of Agriculture (SPUA), Jepang, selama satu semester merupakan pengalaman yang luar biasa. Melalui kolaborasi antara IPB University dan SPUA, saya berkesempatan mengasah kompetensi internasional di bidang agribisnis serta memperluas wawasan lintas budaya secara langsung di lingkungan akademik Jepang. Program ini tidak hanya memperkuat kemampuan adaptasi saya, tetapi juga memberikan perspektif global yang sangat berharga bagi pengembangan karier saya di masa depan.",
+		testimonial2Name: "Dzakiyyah Lainun Zain - MAB 60",
+		testimonial2Role: "Delegasi Student Exchange Ilo Ilo Science and Technology University (ISAT U), Filipina",
+		testimonial2Image: "/images/testimonials/dzakiyyah.webp",
 		testimonial2Text:
-			"VCC memberikan persiapan yang matang sebelum saya berangkat magang. Pengalaman ini sangat berharga untuk karier saya.",
-		testimonial3Name: "Ahmad Kurnia",
-		testimonial3Role: "Peserta Program Joint Degree",
+			"Program student exchange di ISAT U, Filipina memberikan saya wawasan berharga mengenai sistem pertanian dan peternakan di Leon. Saya belajar banyak melalui praktik langsung di lapangan, kunjungan ke instansi pemerintah, hingga riset pasar di Leon Bagsakan Market. Pengalaman ini sangat efektif dalam meningkatkan kompetensi global dan pemahaman budaya saya di bidang agribisnis.",
+		testimonial3Name: "Erina Lailani Safitri - TMP 59",
+		testimonial3Role: "Delegasi Vietnam Coffee Plantation Research and Internship in Vietnam National University of Agriculture",
+		testimonial3Image: "/images/testimonials/erina.webp",
 		testimonial3Text:
-			"Berkat VCC, saya bisa mengikuti program joint degree dan mendapatkan dua gelar. Ini membuka banyak peluang baru.",
+			"Mengikuti program riset dan magang di Vietnam National University of Agriculture (VNUA) selama tiga bulan merupakan pengalaman yang sangat berharga. Saya tidak hanya memperdalam teori di kelas internasional, tetapi juga terjun langsung melakukan riset mandiri pada bibit kopi Arabika dan menjalani magang di Phuc Sinh Coffee Corporation, Sơn La. Program ini memberikan saya pemahaman mendalam mengenai seluruh rantai nilai kopi Vietnam, mulai dari budidaya berkelanjutan hingga strategi pemasaran internasional.",
 
 		//about
 		aboutTitle: "Tentang Kami",
@@ -272,18 +275,21 @@ const translations = {
 		testimonialsTitle: "Student Testimonials",
 		testimonialsSubtitle:
 			"Success stories of students who have participated in international collaboration programs",
-		testimonial1Name: "Budi Santoso",
-		testimonial1Role: "Exchange Student in Japan",
+		testimonial1Name: "M. Naufal Arkaan - MAB 59",
+		testimonial1Role: "Internship Program Delegate at Shizuoka Professional University of Agriculture, Japan",
+		testimonial1Image: "/images/testimonials/arkaan.webp",
 		testimonial1Text:
-			"Information from VCC was very helpful in choosing the right exchange program. The registration process was also clear and structured.",
-		testimonial2Name: "Siti Aminah",
-		testimonial2Role: "Internship Participant in Thailand",
+			"Being part of the traineeship program at Shizuoka Professional University of Agriculture (SPUA), Japan, for one semester was an extraordinary experience. Through the collaboration between IPB University and SPUA, I had the opportunity to hone international competencies in agribusiness and broaden my cross-cultural horizons directly in the Japanese academic environment. This program not only strengthened my adaptability but also provided a valuable global perspective for my future career development.",
+		testimonial2Name: "Dzakiyyah Lainun Zain - MAB 60",
+		testimonial2Role: "Student Exchange Delegate at Ilo Ilo Science and Technology University (ISAT U), Philippines",
+		testimonial2Image: "/images/testimonials/dzakiyyah.webp",
 		testimonial2Text:
-			"VCC provided mature preparation before I departed for my internship. This experience was very valuable for my career.",
-		testimonial3Name: "Ahmad Kurnia",
-		testimonial3Role: "Joint Degree Program Participant",
+			"The student exchange program at ISAT U, Philippines provided me with valuable insights into the agricultural and livestock systems in Leon. I learned a lot through hands-on practice in the field, visits to government agencies, and market research at the Leon Bagsakan Market. This experience was very effective in enhancing my global competence and cultural understanding in the field of agribusiness.",
+		testimonial3Name: "Erina Lailani Safitri - TMP 59",
+		testimonial3Role: "Research and Internship Delegate at Vietnam National University of Agriculture",
+		testimonial3Image: "/images/testimonials/erina.webp",
 		testimonial3Text:
-			"Thanks to VCC, I was able to participate in the joint degree program and earn two degrees. This has opened many new opportunities.",
+			"Participating in the research and internship program at Vietnam National University of Agriculture (VNUA) for three months was a very valuable experience. I not only deepened my theoretical knowledge in international classes but also directly conducted independent research on Arabica coffee seedlings and interned at Phuc Sinh Coffee Corporation, Sơn La. This program gave me a deep understanding of the entire Vietnamese coffee value chain, from sustainable cultivation to international marketing strategies.",
 		//about
 		aboutTitle: "About Us",
 		aboutSubtitle:

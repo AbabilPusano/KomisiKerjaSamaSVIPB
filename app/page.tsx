@@ -423,38 +423,59 @@ function HomePageContent() {
 					</div>
 
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-						<div className="bg-gray-50 p-8 rounded-xl border border-gray-100">
-							<div className="flex items-center mb-6">
-								<div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
-								<div className="ml-4">
-									<h3 className="font-bold text-lg text-gray-900">
+						<div className="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+							<div className="flex items-start mb-6 gap-4">
+								<div className="relative w-16 h-16 rounded-full overflow-hidden shadow-md flex-shrink-0 border-2 border-white">
+									<Image
+										src={t("testimonial1Image")}
+										alt={t("testimonial1Name")}
+										fill
+										className="object-cover"
+									/>
+								</div>
+								<div>
+									<h3 className="font-bold text-lg text-gray-900 leading-tight mb-1">
 										{t("testimonial1Name")}
 									</h3>
-									<p className="text-gray-700">{t("testimonial1Role")}</p>
+									<p className="text-sm text-gray-600 leading-snug">{t("testimonial1Role")}</p>
 								</div>
 							</div>
 							<p className="text-gray-600 italic">{t("testimonial1Text")}</p>
 						</div>
-						<div className="bg-gray-50 p-8 rounded-xl border border-gray-100">
-							<div className="flex items-center mb-6">
-								<div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
-								<div className="ml-4">
-									<h3 className="font-bold text-lg text-gray-900">
+						<div className="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+							<div className="flex items-start mb-6 gap-4">
+								<div className="relative w-16 h-16 rounded-full overflow-hidden shadow-md flex-shrink-0 border-2 border-white">
+									<Image
+										src={t("testimonial2Image")}
+										alt={t("testimonial2Name")}
+										fill
+										className="object-cover"
+									/>
+								</div>
+								<div>
+									<h3 className="font-bold text-lg text-gray-900 leading-tight mb-1">
 										{t("testimonial2Name")}
 									</h3>
-									<p className="text-gray-700">{t("testimonial2Role")}</p>
+									<p className="text-sm text-gray-600 leading-snug">{t("testimonial2Role")}</p>
 								</div>
 							</div>
 							<p className="text-gray-600 italic">{t("testimonial2Text")}</p>
 						</div>
-						<div className="bg-gray-50 p-8 rounded-xl border border-gray-100">
-							<div className="flex items-center mb-6">
-								<div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
-								<div className="ml-4">
-									<h3 className="font-bold text-lg text-gray-900">
+						<div className="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+							<div className="flex items-start mb-6 gap-4">
+								<div className="relative w-16 h-16 rounded-full overflow-hidden shadow-md flex-shrink-0 border-2 border-white">
+									<Image
+										src={t("testimonial3Image")}
+										alt={t("testimonial3Name")}
+										fill
+										className="object-cover"
+									/>
+								</div>
+								<div>
+									<h3 className="font-bold text-lg text-gray-900 leading-tight mb-1">
 										{t("testimonial3Name")}
 									</h3>
-									<p className="text-gray-700">{t("testimonial3Role")}</p>
+									<p className="text-sm text-gray-600 leading-snug">{t("testimonial3Role")}</p>
 								</div>
 							</div>
 							<p className="text-gray-600 italic">{t("testimonial3Text")}</p>
