@@ -110,10 +110,7 @@ const specialPrograms = [
 ];
 
 const STUDY_PROGRAMS = [
-	"Program 1", "Program 2", "Program 3", "Program 4", "Program 5",
-	"Program 6", "Program 7", "Program 8", "Program 9", "Program 10",
-	"Program 11", "Program 12", "Program 13", "Program 14", "Program 15",
-	"Program 16", "Program 17"
+	"KMN", "EKW", "TPL", "TRK", "SJMP", "GZI", "PTB", "IKN", "TNK", "MAB", "MNI", "KIM", "LNK", "AKN", "PVT", "TMP", "PPP"
 ];
 
 /* =======================
