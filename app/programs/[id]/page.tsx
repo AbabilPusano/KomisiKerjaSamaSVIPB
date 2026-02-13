@@ -2,7 +2,7 @@
 
 import { useEffect, useState, use, useRef } from "react";
 import Link from "next/link";
-import { Header, Footer } from "@/app/components";
+import { Header, Footer, ImageModal } from "@/app/components";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, MapPin, Calendar, Mail, Phone, MessageCircle } from "lucide-react";
 
@@ -76,7 +76,7 @@ interface Program {
   createdAt: string;
 }
 
-const CustomSectionRenderer = ({ section, mainColor }: { section: CustomSection, mainColor: string }) => {
+const CustomSectionRenderer = ({ section, mainColor, onImageClick }: { section: CustomSection, mainColor: string, onImageClick: (img: string, title: string, desc: string) => void }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -112,7 +112,11 @@ const CustomSectionRenderer = ({ section, mainColor }: { section: CustomSection,
           {section.layout === 'grid' ? (
             <div className="grid md:grid-cols-3 gap-8">
               {section.cards.map((card, idx) => (
-                <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group">
+                <div
+                  key={idx}
+                  className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all border border-slate-100 group ${card.image ? 'cursor-pointer hover:shadow-xl hover:-translate-y-1' : ''}`}
+                  onClick={() => card.image && onImageClick(card.image, card.title, card.description)}
+                >
                   {card.image && (
                     <div className="relative h-64 overflow-hidden">
                       <Image
@@ -156,7 +160,8 @@ const CustomSectionRenderer = ({ section, mainColor }: { section: CustomSection,
                 {section.cards.map((card, idx) => (
                   <div
                     key={idx}
-                    className="min-w-[100%] md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group"
+                    className={`min-w-[100%] md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-2xl shadow-lg overflow-hidden transition-all border border-slate-100 group ${card.image ? 'cursor-pointer hover:shadow-xl hover:-translate-y-1' : ''}`}
+                    onClick={() => card.image && onImageClick(card.image, card.title, card.description)}
                   >
                     {card.image && (
                       <div className="relative h-64 overflow-hidden">
@@ -202,6 +207,20 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
   const { id } = resolvedParams;
 
   const [program, setProgram] = useState<Program | null>(null);
+  const [modalState, setModalState] = useState<{ isOpen: boolean; imageUrl: string; title: string; description: string }>({
+    isOpen: false,
+    imageUrl: "",
+    title: "",
+    description: ""
+  });
+
+  const openModal = (imageUrl: string, title: string, description: string) => {
+    setModalState({ isOpen: true, imageUrl, title, description });
+  };
+
+  const closeModal = () => {
+    setModalState(prev => ({ ...prev, isOpen: false }));
+  };
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -560,7 +579,7 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
         {/* Custom Sections */}
         {
           program.customSections && program.customSections.map((section, idx) => (
-            <CustomSectionRenderer key={idx} section={section} mainColor={mainColor} />
+            <CustomSectionRenderer key={idx} section={section} mainColor={mainColor} onImageClick={openModal} />
           ))
         }
 
@@ -578,7 +597,11 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
                     // Grid View (< 4 items)
                     <div className="grid md:grid-cols-3 gap-8">
                       {program.gallery.map((item, idx) => (
-                        <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group">
+                        <div
+                          key={idx}
+                          className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group cursor-pointer hover:-translate-y-1"
+                          onClick={() => openModal(item.imageUrl, item.title, item.shortDescription)}
+                        >
                           <div className="relative h-64 overflow-hidden">
                             <Image
                               src={item.imageUrl}
@@ -620,7 +643,8 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
                         {program.gallery.map((item, idx) => (
                           <div
                             key={idx}
-                            className="min-w-[100%] md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group"
+                            className="min-w-[100%] md:min-w-[calc(33.333%-22px)] snap-center bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all border border-slate-100 group cursor-pointer hover:-translate-y-1"
+                            onClick={() => openModal(item.imageUrl, item.title, item.shortDescription)}
                           >
                             <div className="relative h-64 overflow-hidden">
                               <Image
@@ -732,7 +756,14 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
             </div>
           </div>
         </section>
-      </div >
+      </div>
+      <ImageModal
+        isOpen={modalState.isOpen}
+        onClose={closeModal}
+        imageUrl={modalState.imageUrl}
+        title={modalState.title}
+        description={modalState.description}
+      />
       <Footer />
     </>
   );
