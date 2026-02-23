@@ -78,14 +78,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/programs/japan"
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-300"
-                >
-                  Program Jepang
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/programs"
                   className="text-gray-300 hover:text-white text-sm transition-colors duration-300"
                 >
