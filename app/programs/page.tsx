@@ -467,7 +467,8 @@ export default function ProgramsPage() {
 												{/* Buttons */}
 												<div className="flex flex-wrap gap-3 mt-auto pt-5 border-t border-slate-50">
 													<Link
-														href={program.redirectUrl || `/programs/${program.id}`}
+														href={program.redirectUrl || `/programs/${program.id}`} 
+														target="_blank"
 														className="flex-1 min-w-[140px] bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm text-center"
 													>
 														Learn More
