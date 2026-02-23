@@ -729,6 +729,7 @@ export default function PPBJPage() {
 										</div>
 										<Link
 											href="/programs/cmld4f2x2000004jvi2utogg4"
+											target="_blank"
 											className="inline-flex items-center px-8 py-4 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all transform hover:scale-105 shadow-lg group"
 										>
 											Lihat Detail Program
