@@ -266,7 +266,7 @@ export default function PPBJPage() {
 														</li>
 														<li className="flex items-start">
 															<span className="text-blue-600 mr-2">✓</span>
-															Peluang mendapat beasiswa Nikkei 100%
+															Peluang mendapat beasiswa Newspaper 100%
 														</li>
 														<li className="flex items-start">
 															<span className="text-blue-600 mr-2">✓</span>
@@ -318,7 +318,7 @@ export default function PPBJPage() {
 														</li>
 														<li className="flex items-start">
 															<span className="text-blue-600 mr-2">✓</span>
-															Peluang mendapat beasiswa Nikkei berdasarkan kuota
+															Peluang mendapat beasiswa Newspaper berdasarkan kuota
 														</li>
 														<li className="flex items-start">
 															<span className="text-blue-600 mr-2">✓</span>
@@ -341,6 +341,9 @@ export default function PPBJPage() {
 											</h4>
 											<div className="grid md:grid-cols-2 gap-6">
 												<div>
+													<p className="text-gray-700 mb-2">
+														<i>Kelas diperuntukkan untuk yang belum pernah belajar bahasa Jepang</i>
+													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A1, JLPT N5
 													</p>
@@ -371,7 +374,7 @@ export default function PPBJPage() {
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Nikkei (Kuota)
+															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota)
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
@@ -408,6 +411,9 @@ export default function PPBJPage() {
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (16-30), Marugoto A2-1 (1-18), JLPT Taisaku N5, Langoal (98 Kanji + 100 Kanji N4)
 													</p>
+													<p className="text-gray-700 mb-2">
+														<strong>Syarat:</strong> Lulus Kelas Pemula atau Lulus Placement Test.
+													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
 														Rp4.250.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
@@ -429,7 +435,7 @@ export default function PPBJPage() {
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Nikkei (Kuota)
+															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota)
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
@@ -467,6 +473,9 @@ export default function PPBJPage() {
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (30-50), Marugoto A2-2 (1-18), JLPT Taisaku N4, Langoal (209 Kanji N4)
 													</p>
+													<p className="text-gray-700 mb-2">
+														<strong>Syarat:</strong> Lulus Kelas Dasar 1 atau Lulus Placement Test.
+													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
 														Rp4.750.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
 													</p>
@@ -488,7 +497,7 @@ export default function PPBJPage() {
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Nikkei (Kuota)
+															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota)
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
@@ -523,6 +532,9 @@ export default function PPBJPage() {
 											<p className="text-gray-700 mb-2">
 												<strong>Materi:</strong> Minna no Nihongo 1 (Bab 30–50), Marugoto A2-2 (1–18),
 												JLPT Taisaku N4, Langoal (±209 Kanji N4)
+											</p>
+											<p className="text-gray-700 mb-2">
+												<strong>Syarat:</strong> Memiliki Sertifikat Bahasa Jepang N5 atau Setara.
 											</p>
 
 											<p className="text-2xl font-bold text-green-600 mt-4">
@@ -710,7 +722,7 @@ export default function PPBJPage() {
 											</div>
 											<div className="flex items-center text-gray-700">
 												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-												<span>Peluang Beasiswa Nikkei & Yomiuri Shimbun</span>
+												<span>Peluang Beasiswa Newspaper</span>
 											</div>
 											<div className="flex items-center text-gray-700">
 												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
@@ -883,7 +895,7 @@ export default function PPBJPage() {
 								</div>
 								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Ernesto Bagus</h4>
-									<p className="text-sm text-gray-600">Peserta Program 3+2, Penerima beasiswa NIKKEI</p>
+									<p className="text-sm text-gray-600">Peserta Program 3+2, Penerima beasiswa Newspaper</p>
 								</div>
 								<p className="text-gray-700 italic">
 									"Awal saya ikuti program ini dengan target lulus N4. Materinya terstruktur dan jadwalnya konsisten, dan sensei selalu sabar membimbing. Suasana kelas interaktif dan menyenangkan, didukung latihan soal serta percakapan yang meningkatkan kemampuan bahasa jepang. Program ini benar-benar mendukung saya untuk mencapai target lulus N4 sekaligus mempersiapkan diri untuk kesempatan akademik maupun professional di Jepang."
