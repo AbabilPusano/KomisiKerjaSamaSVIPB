@@ -449,7 +449,7 @@ export default function PPBJPage() {
 											</p>
 
 											<p className="text-2xl font-bold text-green-600 mt-4">
-												Rp4.750.000{" "}
+												Rp4.000.000{" "}
 												<span className="text-sm text-gray-600">
 												(+ sudah include pendaftaran)
 												</span>
