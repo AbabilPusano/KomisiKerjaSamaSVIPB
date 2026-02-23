@@ -17,15 +17,7 @@ export default function PPBJPage() {
 		}
 	};
 
-	// Scroll to CTA section
-	const scrollToCTA = () => {
-		const ctaSection = document.getElementById("cta-section");
-		if (ctaSection) {
-			ctaSection.scrollIntoView({ behavior: "smooth" });
-		}
-	};
-
-	 const [current, setCurrent] = useState(0);
+	const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const images = [
@@ -78,7 +70,7 @@ export default function PPBJPage() {
               Lihat Pilihan Program
             </button>
             <button
-              onClick={scrollToCTA}
+              onClick={scrollToPrograms}
               className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all text-center"
             >
               Daftar Sekarang
@@ -1017,13 +1009,13 @@ export default function PPBJPage() {
 						<p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
 							Raih kesempatan emas untuk belajar bahasa Jepang dengan kurikulum standar internasional dan pengajar berpengalaman
 						</p>
-						<Link							// href="https://forms.gle/JDx5wEpHD6T4SciC7"
-							href="#programs-section"
+						<button							// href="https://forms.gle/JDx5wEpHD6T4SciC7"
+							onClick={scrollToPrograms}
 							// target="_blank"
 							className="inline-block px-10 py-5 bg-white text-blue-700 font-bold text-lg rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl"
 						>
 							Daftar Online Sekarang
-						</Link>
+						</button>
 					</div>
 				</section>
 			</div>
