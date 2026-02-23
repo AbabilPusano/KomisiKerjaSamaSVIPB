@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Header, Footer } from "@/app/components";
-import { Instagram, Mail } from "lucide-react";
+import { Instagram, Mail,MessageCircle } from "lucide-react";
 
 export default function PPBJPage() {
 	const [activeTab, setActiveTab] = useState<"intensif" | "reguler" | "jlpt">("reguler");
@@ -305,7 +305,7 @@ export default function PPBJPage() {
 											</div>
 											<div className="mt-6 pt-4 border-t border-green-100">
   <a
-    href="https://wa.me/628XXXXXXXXXX?text=Halo,%20saya%20ingin%20mendaftar%20kelas%20Pemula%20(A1)"
+    href="#"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
@@ -364,7 +364,7 @@ export default function PPBJPage() {
 											</div>
 											<div className="mt-6 pt-4 border-t border-green-100">
   <a
-    href="https://wa.me/628XXXXXXXXXX?text=Halo,%20saya%20ingin%20mendaftar%20kelas%20Pemula%20(A1)"
+    href="#"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
@@ -484,7 +484,7 @@ export default function PPBJPage() {
 										</div>
 										<div className="mt-6 pt-4 border-t border-green-100">
   <a
-    href="https://wa.me/628XXXXXXXXXX?text=Halo,%20saya%20ingin%20mendaftar%20kelas%20Pemula%20(A1)"
+    href="#"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
@@ -856,7 +856,7 @@ export default function PPBJPage() {
 							</p>
 						</div>
 
-						<div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+						<div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
 							{/* Instagram Card */}
 							<a
 								href="https://www.instagram.com/ppbj_svipb/"
@@ -873,6 +873,23 @@ export default function PPBJPage() {
 									Klik untuk follow →
 								</span>
 							</a>
+							
+							<a
+							href="https://wa.me/6282299273968?text=Halo%20admin%2C%20saya%20ingin%20bertanya%20tentang%20PPBJ."
+							target="_blank"
+							rel="noopener noreferrer"
+							className="group bg-gradient-to-br from-green-50 via-emerald-50 to-lime-50 p-8 rounded-2xl shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center"
+							>
+							<div className="w-20 h-20 bg-gradient-to-br from-green-500 via-emerald-500 to-lime-500 rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+								<MessageCircle className="w-10 h-10 text-white" />
+							</div>
+							<h3 className="text-2xl font-bold text-gray-900 mb-2">WhatsApp</h3>
+							<p className="text-gray-600 mb-4 font-medium">Chat Admin</p>
+							<span className="text-sm font-semibold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
+								Klik untuk chat →
+							</span>
+							</a>
+
 
 							{/* Email Card */}
 							<a
@@ -888,6 +905,7 @@ export default function PPBJPage() {
 									Klik untuk kirim email →
 								</span>
 							</a>
+							
 						</div>
 					</div>
 				</section>
