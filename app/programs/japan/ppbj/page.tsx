@@ -385,7 +385,7 @@ export default function PPBJPage() {
 											</div>
 											<div className="mt-6 pt-4 border-t border-green-100">
   <a
-    href="#"
+    href="https://forms.gle/Ssa5G2sGYkYkKV7GA"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
@@ -413,6 +413,9 @@ export default function PPBJPage() {
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Syarat:</strong> Lulus Kelas Pemula atau Lulus Placement Test.
+													</p>
+													<p className="text-gray-700 mb-2">
+														<i>Placement Test bertujuan untuk mengetahui kemampuan peserta dalam bahasa jepang sehingga peserta dapat mengikuti kelas dengan baik.</i>
 													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
 														Rp4.250.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
@@ -447,7 +450,7 @@ export default function PPBJPage() {
 											</div>
 											<div className="mt-6 pt-4 border-t border-green-100">
   <a
-    href="#"
+    href="https://forms.gle/4UPQwvmYyBAqXQuu6"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
@@ -475,6 +478,9 @@ export default function PPBJPage() {
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Syarat:</strong> Lulus Kelas Dasar 1 atau Lulus Placement Test.
+													</p>
+													<p className="text-gray-700 mb-2">
+														<i>Placement Test bertujuan untuk mengetahui kemampuan peserta dalam bahasa jepang sehingga peserta dapat mengikuti kelas dengan baik.</i>
 													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
 														Rp4.750.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
@@ -509,7 +515,7 @@ export default function PPBJPage() {
 											</div>
 											<div className="mt-6 pt-4 border-t border-green-100">
   <a
-    href="#"
+    href="https://forms.gle/ZGKU4f86uM9iNv3r8"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
@@ -573,7 +579,7 @@ export default function PPBJPage() {
 										</div>
 										<div className="mt-6 pt-4 border-t border-green-100">
   <a
-    href="#"
+    href="https://forms.gle/kfWJ9rLnue6z9k5G7"
     target="_blank"
     rel="noopener noreferrer"
     className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
