@@ -303,6 +303,16 @@ export default function PPBJPage() {
 													</ul>
 												</div>
 											</div>
+											<div className="mt-6 pt-4 border-t border-green-100">
+  <a
+    href="https://wa.me/628XXXXXXXXXX?text=Halo,%20saya%20ingin%20mendaftar%20kelas%20Pemula%20(A1)"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+  >
+    Daftar Sekarang →
+  </a>
+</div>
 										</div>
 
 										{/* Dasar 1 (A2-1) */}
@@ -350,7 +360,18 @@ export default function PPBJPage() {
 														</li>
 													</ul>
 												</div>
+												
 											</div>
+											<div className="mt-6 pt-4 border-t border-green-100">
+  <a
+    href="https://wa.me/628XXXXXXXXXX?text=Halo,%20saya%20ingin%20mendaftar%20kelas%20Pemula%20(A1)"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+  >
+    Daftar Sekarang →
+  </a>
+</div>
 										</div>
 
 										{/* Dasar 2 (A2-2) */}
@@ -398,9 +419,82 @@ export default function PPBJPage() {
 														</li>
 													</ul>
 												</div>
+												
+											</div>
+											<div className="mt-6 pt-4 border-t border-green-100">
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+  >
+    Daftar Sekarang →
+  </a>
+</div>
+										</div>
+										<div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl border-2 border-green-100 hover:border-green-300 transition-all">
+										<h4 className="text-2xl font-bold text-gray-900 mb-4">Persiapan N4</h4>
+
+										<div className="grid md:grid-cols-2 gap-6">
+											<div>
+											<p className="text-gray-700 mb-2">
+												<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-2, JLPT N4
+											</p>
+											<p className="text-gray-700 mb-2">
+												<strong>Durasi:</strong> 5 bulan (±150 jam) | <strong>Kuota:</strong> 15 peserta
+											</p>
+											<p className="text-gray-700 mb-2">
+												<strong>Materi:</strong> Minna no Nihongo 1 (Bab 30–50), Marugoto A2-2 (1–18),
+												JLPT Taisaku N4, Langoal (±209 Kanji N4)
+											</p>
+
+											<p className="text-2xl font-bold text-green-600 mt-4">
+												Rp4.750.000{" "}
+												<span className="text-sm text-gray-600">
+												(+ sudah include pendaftaran)
+												</span>
+											</p>
+											</div>
+
+											<div>
+											<p className="font-semibold text-gray-900 mb-2">Benefit:</p>
+											<ul className="space-y-2 text-gray-700">
+												<li className="flex items-start">
+												<span className="text-green-600 mr-2">✓</span>
+												Komunikasi sehari-hari lebih mendalam & terstruktur
+												</li>
+												<li className="flex items-start">
+												<span className="text-green-600 mr-2">✓</span>
+												Diskusi budaya, etos kerja, dan situasi kerja dasar
+												</li>
+												<li className="flex items-start">
+												<span className="text-green-600 mr-2">✓</span>
+												Drill soal JLPT N4 (moji-goi, bunpou, dokkai, choukai)
+												</li>
+												<li className="flex items-start">
+												<span className="text-green-600 mr-2">✓</span>
+												Simulasi ujian + pembahasan + strategi time management
+												</li>
+												<li className="flex items-start">
+												<span className="text-green-600 mr-2">✓</span>
+												Hiragana/Katakana, ±300 Kanji, ±1500 Kosakata (target)
+												</li>
+											</ul>
 											</div>
 										</div>
+										<div className="mt-6 pt-4 border-t border-green-100">
+  <a
+    href="https://wa.me/628XXXXXXXXXX?text=Halo,%20saya%20ingin%20mendaftar%20kelas%20Pemula%20(A1)"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+  >
+    Daftar Sekarang →
+  </a>
+</div>
+										</div>
 									</div>
+									
 								)}
 
 								{/* Tab Content: JLPT */}
@@ -803,16 +897,16 @@ export default function PPBJPage() {
 					id="cta-section"
 					className="py-20 bg-gradient-to-r from-blue-600 to-blue-700"
 				>
-					<div className="container mx-auto px-4 text-center">
+					<div className="container mx-auto px-4 text-center scroll-smooth">
 						<h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
 							Kuota Terbatas (Maksimal 20 orang per kelas). Amankan kursimu sekarang!
 						</h2>
 						<p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
 							Raih kesempatan emas untuk belajar bahasa Jepang dengan kurikulum standar internasional dan pengajar berpengalaman
 						</p>
-						<Link
-							href="https://forms.gle/JDx5wEpHD6T4SciC7"
-							target="_blank"
+						<Link							// href="https://forms.gle/JDx5wEpHD6T4SciC7"
+							href="#programs-section"
+							// target="_blank"
 							className="inline-block px-10 py-5 bg-white text-blue-700 font-bold text-lg rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl"
 						>
 							Daftar Online Sekarang
