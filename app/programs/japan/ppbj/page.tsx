@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState,useEffect,useCallback } from "react";
 import { Header, Footer } from "@/app/components";
 import { Instagram, Mail,MessageCircle } from "lucide-react";
 
@@ -25,47 +25,124 @@ export default function PPBJPage() {
 		}
 	};
 
+	 const [current, setCurrent] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const images = [
+  { src: "/images/chuo/rapat.webp", alt: "PPBJ SV IPB - Rapat" },
+//   { src: "/images/chuo/kelas.webp", alt: "PPBJ SV IPB - Kelas" },
+//   { src: "/images/chuo/kampus.webp", alt: "PPBJ SV IPB - Kampus" },
+];
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setCurrent(index);
+      setTimeout(() => setIsAnimating(false), 500);
+    },
+    [isAnimating]
+  );
+	  const prev = () => goTo((current - 1 + images.length) % images.length);
+  const next = () => goTo((current + 1) % images.length);
+	
+	// Auto-slide every 5 detik
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((c) => (c + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
 	return (
 		<>
 			<Header />
 			<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
 				{/* Hero Section */}
-				<section className="container mx-auto px-4 py-20 lg:py-32">
-					<div className="grid lg:grid-cols-2 gap-12 items-center">
-						<div className="space-y-6">
-							<h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-								Raih Masa Depan Akademik dan Karier Profesional di Jepang
-							</h1>
-							<p className="text-lg text-gray-600">
-								Program Pelatihan Bahasa Jepang resmi Sekolah Vokasi IPB. Kurikulum standar mitra Jepang, pengajar Native Speaker, dan peluang beasiswa penuh.
-							</p>
-							<div className="flex flex-col sm:flex-row gap-4">
-								<button
-									onClick={scrollToPrograms}
-									className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg"
-								>
-									Lihat Pilihan Program
-								</button>
-								<button
-									onClick={scrollToCTA}
-									className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all text-center"
-								>
-									Daftar Sekarang
-								</button>
-							</div>
-						</div>
+				 <section className="container mx-auto px-4 py-20 lg:py-32">
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-6">
+          <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            Raih Masa Depan Akademik dan Karier Profesional di Jepang
+          </h1>
+          <p className="text-lg text-gray-600">
+            Program Pelatihan Bahasa Jepang resmi Sekolah Vokasi IPB. Kurikulum
+            standar mitra Jepang, pengajar Native Speaker, dan peluang beasiswa
+            penuh.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={scrollToPrograms}
+              className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg"
+            >
+              Lihat Pilihan Program
+            </button>
+            <button
+              onClick={scrollToCTA}
+              className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all text-center"
+            >
+              Daftar Sekarang
+            </button>
+          </div>
+        </div>
 
-						{/* Hero Image */}
-						<div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-							<img
-								src="/images/chuo/rapat.webp"
-								alt="PPBJ SV IPB"
-								className="w-full h-full object-cover"
-							/>
-							<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-						</div>
-					</div>
-				</section>
+        {/* Hero Image Carousel */}
+        <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
+          {/* Slides */}
+          {images.map((img, i) => (
+            <div
+              key={i}
+              className={`absolute inset-0 transition-opacity duration-500 ${
+                i === current ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+
+          {/* Prev / Next buttons */}
+          <button
+            onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
+            aria-label="Previous"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
+            aria-label="Next"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Dots indicator */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  i === current ? "bg-white w-5" : "bg-white/50"
+                }`}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
 
 				{/* About Section */}
 				<section className="bg-white py-12 lg:py-20">
