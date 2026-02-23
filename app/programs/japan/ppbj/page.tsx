@@ -29,9 +29,9 @@ export default function PPBJPage() {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const images = [
-  { src: "/images/chuo/rapat.webp", alt: "PPBJ SV IPB - Rapat" },
-//   { src: "/images/chuo/kelas.webp", alt: "PPBJ SV IPB - Kelas" },
-//   { src: "/images/chuo/kampus.webp", alt: "PPBJ SV IPB - Kampus" },
+  // { src: "/images/chuo/rapat.webp", alt: "PPBJ SV IPB - Rapat" },
+  { src: "/images/ppbj/poster1.webp", alt: "PPBJ SV IPB - Poster 1" },
+  { src: "/images/ppbj/poster2.webp", alt: "PPBJ SV IPB - Poster 2" },
 ];
 
   const goTo = useCallback(
@@ -87,7 +87,7 @@ export default function PPBJPage() {
         </div>
 
         {/* Hero Image Carousel */}
-        <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
+        <div className="relative h-96 lg:h-[750px] rounded-2xl overflow-hidden shadow-2xl group">
           {/* Slides */}
           {images.map((img, i) => (
             <div
@@ -99,7 +99,7 @@ export default function PPBJPage() {
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
           ))}
