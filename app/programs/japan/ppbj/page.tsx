@@ -228,7 +228,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi dalam Bahasa Jepang tingkat kemahiran CEFR A2B1, Lulus JLPT N4
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 6 bulan (400 Jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 5 bulan (400 Jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> Irodori A1, A2-1, A2-2; JLPT Taisaku N5 dan N4; Marugoto A2B1
@@ -280,7 +280,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi dalam Bahasa Jepang tingkat kemahiran CEFR A2B1, Lulus JLPT N4
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 6 bulan (450 Jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 5 bulan (450 Jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 dan 2; Marugoto A1, A2-1, A2-2; JLPT Taisaku N5 dan N4; Langoal
@@ -340,7 +340,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A1, JLPT N5
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 6 bulan (±150 Jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 5 bulan (±150 Jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (1-16), Marugoto A1 (1-18), JLPT Taisaku N5, Langoal (100 Kanji)
@@ -398,7 +398,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-1, JLPT N5 menuju N4
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 6 bulan (±150 jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 5 bulan (±150 jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (16-30), Marugoto A2-1 (1-18), JLPT Taisaku N5, Langoal (98 Kanji + 100 Kanji N4)
@@ -463,7 +463,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-2, JLPT N4
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 6 bulan (±150 jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 5 bulan (±150 jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (30-50), Marugoto A2-2 (1-18), JLPT Taisaku N4, Langoal (209 Kanji N4)
@@ -525,7 +525,7 @@ export default function PPBJPage() {
 												<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-2, JLPT N4
 											</p>
 											<p className="text-gray-700 mb-2">
-												<strong>Durasi:</strong> 6 bulan (±150 jam) | <strong>Kuota:</strong> 15 peserta
+												<strong>Durasi:</strong> 5 bulan (±150 jam) | <strong>Kuota:</strong> 15 peserta
 											</p>
 											<p className="text-gray-700 mb-2">
 												<strong>Materi:</strong> Minna no Nihongo 1 (Bab 30–50), Marugoto A2-2 (1–18),
