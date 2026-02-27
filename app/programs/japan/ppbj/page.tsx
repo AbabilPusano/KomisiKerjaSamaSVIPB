@@ -366,7 +366,7 @@ export default function PPBJPage() {
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota)
+															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota) - maksimal mahasiswa semester 4
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
@@ -430,7 +430,7 @@ export default function PPBJPage() {
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota)
+															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota) - maksimal mahasiswa semester 4
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
@@ -495,7 +495,7 @@ export default function PPBJPage() {
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota)
+															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota) - maksimal mahasiswa semester 4
 														</li>
 														<li className="flex items-start">
 															<span className="text-green-600 mr-2">✓</span>
@@ -714,6 +714,10 @@ export default function PPBJPage() {
 											Sekolah Vokasi IPB University membuka kesempatan bagi mahasiswa untuk mengikuti Program Internasional skema 3+2. Program ini dirancang untuk membekali mahasiswa dengan kompetensi akademik, keterampilan kerja, serta pemahaman budaya Jepang.
 										</p>
 										<div className="space-y-3 mb-8">
+											<div className="flex items-center text-gray-700">
+												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+												<span>Maksimal mahasiswa semester 4</span>
+											</div>
 											<div className="flex items-center text-gray-700">
 												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
 												<span>Skema 3 Tahun di IPB + 2.5 Tahun di Jepang</span>
