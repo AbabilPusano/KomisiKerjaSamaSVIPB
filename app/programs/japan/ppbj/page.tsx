@@ -797,22 +797,48 @@ export default function PPBJPage() {
 
 				{/* Teachers Section */}
 				<section className="py-20 bg-white">
-					<div className="container mx-auto px-4">
-						<div className="text-center mb-16">
-							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
-								Profil Tim Pengajar
-							</h2>
-						</div>
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Profil Tim Pengajar
+          </h2>
+        </div>
 
-						<div className="max-w-4xl mx-auto">
-							<div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg">
-								<p className="text-gray-700 text-lg leading-relaxed">
-									Pengajar pada pelatihan bahasa Jepang ini terdiri dari para pengajar profesional dengan pengalaman mengajar bahasa Jepang di lembaga pendidikan bahasa Jepang formal dan informal, dengan pengalaman minimal selama <strong>15 tahun</strong>. Tim pengajar terdiri atas 5 orang pengajar yang masing-masing berkewarganegaraan Indonesia serta 1 orang pengajar dengan kewarganegaraan Jepang (<strong>Native Speaker</strong>). Dengan begitu diharapkan dapat memperkaya proses pembelajaran dan dapat memberikan kontribusi yang signifikan terhadap pengalaman belajar peserta pelatihan.
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
+        <div className="max-w-3xl mx-auto space-y-8">
+          {/* Gambar Tim Pengajar */}
+         <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+  <div className="relative w-full aspect-video">
+    <Image
+      src="/images/ppbj/pengajar.webp"
+      alt="Tim Pengajar Pusat Bahasa Sekolah Vokasi IPB"
+      fill
+      sizes="(max-width: 768px) 100vw, 1024px"
+      quality={100}
+      className="object-contain"
+      priority={false}
+    />
+  </div>
+</div>
+
+          {/* Deskripsi */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg">
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Pengajar pada pelatihan bahasa Jepang ini terdiri dari para
+                pengajar profesional dengan pengalaman mengajar bahasa Jepang di
+                lembaga pendidikan bahasa Jepang formal dan informal, dengan
+                pengalaman minimal selama <strong>15 tahun</strong>. Tim pengajar
+                terdiri atas 5 orang pengajar yang masing-masing berkewarganegaraan
+                Indonesia serta 1 orang pengajar dengan kewarganegaraan Jepang (
+                <strong>Native Speaker</strong>). Dengan begitu diharapkan dapat
+                memperkaya proses pembelajaran dan dapat memberikan kontribusi yang
+                signifikan terhadap pengalaman belajar peserta pelatihan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 				{/* Testimonials */}
 				<section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
