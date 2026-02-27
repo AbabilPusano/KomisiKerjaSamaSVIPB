@@ -340,7 +340,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A1, JLPT N5
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 6 bulan (150 Jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 6 bulan (±150 Jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (1-16), Marugoto A1 (1-18), JLPT Taisaku N5, Langoal (100 Kanji)
