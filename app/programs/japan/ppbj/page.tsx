@@ -151,7 +151,7 @@ export default function PPBJPage() {
 									Seiring berjalannya waktu dan setelah satu tahun pelaksanaan, PPBJ berkembang menjadi program pelatihan bahasa Jepang yang lebih luas dan dikenal oleh berbagai kalangan. Saat ini, peserta PPBJ tidak hanya berasal dari calon peserta program 3+2, tetapi juga dari masyarakat umum dengan beragam kebutuhan, baik untuk melanjutkan studi, bekerja, maupun meningkatkan kompetensi bahasa Jepang secara profesional.
 								</p>
 								<p>
-									Pelatihan bahasa Jepang dilaksanakan selama <strong>6 (enam) bulan</strong> dengan total durasi pembelajaran sebanyak <strong>400 jam</strong>. Kegiatan pembelajaran mencakup tatap muka secara daring dan luring, latihan komunikasi lisan dan tulisan secara terbimbing dan mandiri, Ujian Simulasi Kemahiran Bahasa Jepang (UKBJ), bimbingan dan konseling, serta evaluasi tengah dan akhir pelatihan.
+									Pelatihan bahasa Jepang dilaksanakan selama <strong>6 (enam) bulan</strong> dengan total durasi pembelajaran sebanyak <strong>±150 jam</strong>. Kegiatan pembelajaran mencakup tatap muka secara daring dan luring, latihan komunikasi lisan dan tulisan secara terbimbing dan mandiri, Ujian Simulasi Kemahiran Bahasa Jepang (UKBJ), bimbingan dan konseling, serta evaluasi tengah dan akhir pelatihan.
 								</p>
 								<p>
 									Capaian pembelajaran peserta difokuskan pada kemampuan memahami kalimat dan ungkapan yang berkaitan dengan informasi dasar diri, menanggapi pertukaran informasi mengenai aktivitas sehari-hari, serta menjelaskan latar belakang diri dan kebutuhan komunikasi secara langsung. Selain penguasaan bahasa, peserta juga dibekali dengan pengetahuan sosial budaya Jepang, etos belajar dan bekerja, serta pembiasaan belajar mandiri agar siap mengikuti pendidikan dan/atau bekerja di Jepang.
@@ -340,7 +340,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A1, JLPT N5
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 5 bulan (150 Jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 6 bulan (150 Jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (1-16), Marugoto A1 (1-18), JLPT Taisaku N5, Langoal (100 Kanji)
@@ -398,7 +398,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-1, JLPT N5 menuju N4
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 5 bulan (150 jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 6 bulan (±150 jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (16-30), Marugoto A2-1 (1-18), JLPT Taisaku N5, Langoal (98 Kanji + 100 Kanji N4)
@@ -463,7 +463,7 @@ export default function PPBJPage() {
 														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-2, JLPT N4
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 5 bulan (150 jam) | <strong>Kuota:</strong> 15
+														<strong>Durasi:</strong> 6 bulan (±150 jam) | <strong>Kuota:</strong> 15
 													</p>
 													<p className="text-gray-700 mb-2">
 														<strong>Materi:</strong> MNN 1 (30-50), Marugoto A2-2 (1-18), JLPT Taisaku N4, Langoal (209 Kanji N4)
@@ -525,7 +525,7 @@ export default function PPBJPage() {
 												<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-2, JLPT N4
 											</p>
 											<p className="text-gray-700 mb-2">
-												<strong>Durasi:</strong> 5 bulan (±150 jam) | <strong>Kuota:</strong> 15 peserta
+												<strong>Durasi:</strong> 6 bulan (±150 jam) | <strong>Kuota:</strong> 15 peserta
 											</p>
 											<p className="text-gray-700 mb-2">
 												<strong>Materi:</strong> Minna no Nihongo 1 (Bab 30–50), Marugoto A2-2 (1–18),
