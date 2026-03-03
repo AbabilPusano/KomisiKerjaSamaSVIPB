@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState,useEffect,useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Header, Footer } from "@/app/components";
-import { Instagram, Mail,MessageCircle } from "lucide-react";
+import { Instagram, Mail, MessageCircle } from "lucide-react";
+import { translations, type Lang } from "./translations";
 
 export default function PPBJPage() {
 	const [activeTab, setActiveTab] = useState<"intensif" | "reguler" | "jlpt">("reguler");
+	const [lang, setLang] = useState<Lang>("id");
+	const t = translations[lang];
 
 	// Scroll to programs section
 	const scrollToPrograms = () => {
@@ -18,144 +21,146 @@ export default function PPBJPage() {
 	};
 
 	const [current, setCurrent] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+	const [isAnimating, setIsAnimating] = useState(false);
 
-  const images = [
-  // { src: "/images/chuo/rapat.webp", alt: "PPBJ SV IPB - Rapat" },
-  { src: "/images/ppbj/poster1.webp", alt: "PPBJ SV IPB - Poster 1" },
-  { src: "/images/ppbj/poster2.webp", alt: "PPBJ SV IPB - Poster 2" },
-];
+	const images = [
+		// { src: "/images/chuo/rapat.webp", alt: "PPBJ SV IPB - Rapat" },
+		{ src: "/images/ppbj/poster1.webp", alt: "PPBJ SV IPB - Poster 1" },
+		{ src: "/images/ppbj/poster2.webp", alt: "PPBJ SV IPB - Poster 2" },
+	];
 
-  const goTo = useCallback(
-    (index: number) => {
-      if (isAnimating) return;
-      setIsAnimating(true);
-      setCurrent(index);
-      setTimeout(() => setIsAnimating(false), 500);
-    },
-    [isAnimating]
-  );
-	  const prev = () => goTo((current - 1 + images.length) % images.length);
-  const next = () => goTo((current + 1) % images.length);
-	
+	const goTo = useCallback(
+		(index: number) => {
+			if (isAnimating) return;
+			setIsAnimating(true);
+			setCurrent(index);
+			setTimeout(() => setIsAnimating(false), 500);
+		},
+		[isAnimating]
+	);
+	const prev = () => goTo((current - 1 + images.length) % images.length);
+	const next = () => goTo((current + 1) % images.length);
+
 	// Auto-slide every 5 detik
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setCurrent((c) => (c + 1) % images.length);
+		}, 5000);
+		return () => clearInterval(timer);
+	}, []);
 
 	return (
 		<>
 			<Header />
 			<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+				{/* Language Toggle */}
+				<div className="fixed top-25 right-4 z-50">
+					<button
+						onClick={() => setLang(lang === "id" ? "en" : "id")}
+						className="flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-300"
+						aria-label="Switch language"
+					>
+						<span className={`text-sm font-bold transition-colors ${lang === 'id' ? 'text-blue-600' : 'text-gray-400'}`}>ID</span>
+						<div className="relative w-10 h-5 bg-gray-200 rounded-full">
+							<div className={`absolute top-0.5 w-4 h-4 bg-blue-600 rounded-full shadow transition-transform duration-300 ${lang === 'en' ? 'translate-x-5' : 'translate-x-0.5'}`} />
+						</div>
+						<span className={`text-sm font-bold transition-colors ${lang === 'en' ? 'text-blue-600' : 'text-gray-400'}`}>EN</span>
+					</button>
+				</div>
 				{/* Hero Section */}
-				 <section className="container mx-auto px-4 py-20 lg:py-32">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Raih Masa Depan Akademik dan Karier Profesional di Jepang
-          </h1>
-          <p className="text-lg text-gray-600">
-            Program Pelatihan Bahasa Jepang resmi Sekolah Vokasi IPB. Kurikulum
-            standar mitra Jepang, pengajar Native Speaker, dan peluang beasiswa
-            penuh.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={scrollToPrograms}
-              className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg"
-            >
-              Lihat Pilihan Program
-            </button>
-            <button
-              onClick={scrollToPrograms}
-              className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all text-center"
-            >
-              Daftar Sekarang
-            </button>
-          </div>
-        </div>
+				<section className="container mx-auto px-4 py-20 lg:py-32">
+					<div className="grid lg:grid-cols-2 gap-12 items-center">
+						<div className="space-y-6">
+							<h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+								{t.heroTitle}
+							</h1>
+							<p className="text-lg text-gray-600">
+								{t.heroDesc}
+							</p>
+							<div className="flex flex-col sm:flex-row gap-4">
+								<button
+									onClick={scrollToPrograms}
+									className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg"
+								>
+									{t.heroBtn1}
+								</button>
+								<button
+									onClick={scrollToPrograms}
+									className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all text-center"
+								>
+									{t.heroBtn2}
+								</button>
+							</div>
+						</div>
 
-        {/* Hero Image Carousel */}
-        <div className="relative h-96 lg:h-[750px] rounded-2xl overflow-hidden shadow-2xl group">
-          {/* Slides */}
-          {images.map((img, i) => (
-            <div
-              key={i}
-              className={`absolute inset-0 transition-opacity duration-500 ${
-                i === current ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          ))}
+						{/* Hero Image Carousel */}
+						<div className="relative h-96 lg:h-[750px] rounded-2xl overflow-hidden shadow-2xl group">
+							{/* Slides */}
+							{images.map((img, i) => (
+								<div
+									key={i}
+									className={`absolute inset-0 transition-opacity duration-500 ${i === current ? "opacity-100" : "opacity-0"
+										}`}
+								>
+									<img
+										src={img.src}
+										alt={img.alt}
+										className="w-full h-full object-contain"
+									/>
+								</div>
+							))}
 
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+							{/* Gradient overlay */}
+							<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
 
-          {/* Prev / Next buttons */}
-          <button
-            onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
-            aria-label="Previous"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
-            aria-label="Next"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+							{/* Prev / Next buttons */}
+							<button
+								onClick={prev}
+								className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
+								aria-label="Previous"
+							>
+								<svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+								</svg>
+							</button>
+							<button
+								onClick={next}
+								className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
+								aria-label="Next"
+							>
+								<svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+								</svg>
+							</button>
 
-          {/* Dots indicator */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  i === current ? "bg-white w-5" : "bg-white/50"
-                }`}
-                aria-label={`Slide ${i + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+							{/* Dots indicator */}
+							<div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+								{images.map((_, i) => (
+									<button
+										key={i}
+										onClick={() => goTo(i)}
+										className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-white w-5" : "bg-white/50"
+											}`}
+										aria-label={`Slide ${i + 1}`}
+									/>
+								))}
+							</div>
+						</div>
+					</div>
+				</section>
 
 				{/* About Section */}
 				<section className="bg-white py-12 lg:py-20">
 					<div className="container mx-auto px-4">
 						<div className="max-w-5xl mx-auto">
 							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8 text-center">
-								Deskripsi Program PPBJ
+								{t.aboutTitle}
 							</h2>
 							<div className="space-y-6 text-gray-700 text-lg leading-relaxed">
-								<p>
-									Program Pelatihan Bahasa Jepang (PPBJ) pada awalnya dibentuk sebagai program pendukung pelaksanaan program 3+2, hasil kerja sama Sekolah Vokasi IPB dengan Chuo Computer and Communication College, Jepang. Oleh karena itu, kurikulum dan arah pembelajaran PPBJ sejak awal disusun untuk menyesuaikan kebutuhan akademik dan tuntutan pembelajaran pada perguruan tinggi mitra tersebut.
-								</p>
-								<p>
-									Seiring berjalannya waktu dan setelah satu tahun pelaksanaan, PPBJ berkembang menjadi program pelatihan bahasa Jepang yang lebih luas dan dikenal oleh berbagai kalangan. Saat ini, peserta PPBJ tidak hanya berasal dari calon peserta program 3+2, tetapi juga dari masyarakat umum dengan beragam kebutuhan, baik untuk melanjutkan studi, bekerja, maupun meningkatkan kompetensi bahasa Jepang secara profesional.
-								</p>
-								<p>
-									Pelatihan bahasa Jepang dilaksanakan selama <strong>5 (lima) bulan</strong> dengan total durasi pembelajaran sebanyak <strong>±150 jam</strong>. Kegiatan pembelajaran mencakup tatap muka secara daring dan luring, latihan komunikasi lisan dan tulisan secara terbimbing dan mandiri, Ujian Simulasi Kemahiran Bahasa Jepang (UKBJ), bimbingan dan konseling, serta evaluasi tengah dan akhir pelatihan.
-								</p>
-								<p>
-									Capaian pembelajaran peserta difokuskan pada kemampuan memahami kalimat dan ungkapan yang berkaitan dengan informasi dasar diri, menanggapi pertukaran informasi mengenai aktivitas sehari-hari, serta menjelaskan latar belakang diri dan kebutuhan komunikasi secara langsung. Selain penguasaan bahasa, peserta juga dibekali dengan pengetahuan sosial budaya Jepang, etos belajar dan bekerja, serta pembiasaan belajar mandiri agar siap mengikuti pendidikan dan/atau bekerja di Jepang.
-								</p>
+								<p>{t.aboutP1}</p>
+								<p>{t.aboutP2}</p>
+								<p dangerouslySetInnerHTML={{ __html: t.aboutP3 }} />
+								<p>{t.aboutP4}</p>
 							</div>
 						</div>
 					</div>
@@ -166,10 +171,10 @@ export default function PPBJPage() {
 					<div className="container mx-auto px-4">
 						<div className="text-center mb-16">
 							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
-								Program Kami
+								{t.programsTitle}
 							</h2>
 							<p className="text-lg text-gray-600 max-w-2xl mx-auto">
-								Pilihan program yang dirancang untuk berbagai kebutuhan akademik dan profesional
+								{t.programsDesc}
 							</p>
 						</div>
 
@@ -177,10 +182,10 @@ export default function PPBJPage() {
 						<div className="mb-20">
 							<div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 lg:p-12">
 								<h3 className="text-3xl font-bold text-gray-900 mb-4">
-									Program Pelatihan Bahasa Jepang
+									{t.programPelatihan}
 								</h3>
 								<p className="text-gray-600 mb-8">
-									Pilihan kelas bahasa untuk umum, mahasiswa, dan persiapan kerja
+									{t.programPelatihanDesc}
 								</p>
 
 								{/* Tabs */}
@@ -201,7 +206,7 @@ export default function PPBJPage() {
 											: "text-gray-600 hover:text-blue-600"
 											}`}
 									>
-										Program Reguler
+										{t.tabReguler}
 									</button>
 									{/* <button
 									onClick={() => setActiveTab("jlpt")}
@@ -329,259 +334,202 @@ export default function PPBJPage() {
 										{/* Pemula (A1) */}
 										<div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl border-2 border-green-100 hover:border-green-300 transition-all">
 											<h4 className="text-2xl font-bold text-gray-900 mb-4">
-												Pemula (A1)
+												{t.pemulaTitle}
 											</h4>
 											<div className="grid md:grid-cols-2 gap-6">
 												<div>
 													<p className="text-gray-700 mb-2">
-														<i>Kelas diperuntukkan untuk yang belum pernah belajar bahasa Jepang</i>
+														<i>{t.pemulaNote}</i>
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A1, JLPT N5
+														<strong>{t.tujuan}</strong> {t.pemulaTujuan}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 5 bulan (±150 Jam) | <strong>Kuota:</strong> 15
+														<strong>{t.durasi}</strong> {t.pemulaDurasi} | <strong>{t.kuota}</strong> {t.pemulaKuota}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Materi:</strong> MNN 1 (1-16), Marugoto A1 (1-18), JLPT Taisaku N5, Langoal (100 Kanji)
+														<strong>{t.materi}</strong> {t.pemulaMateri}
 													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
-														Rp3.750.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
+														{t.pemulaPrice} <span className="text-sm text-gray-600">{t.pemulaPriceNote}</span>
 													</p>
 												</div>
 												<div>
-													<p className="font-semibold text-gray-900 mb-2">Benefit:</p>
+													<p className="font-semibold text-gray-900 mb-2">{t.benefit}</p>
 													<ul className="space-y-2 text-gray-700">
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Latihan komunikasi topik sehari-hari
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Diskusi etos kerja & budaya
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Latihan soal JLPT N5
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota) - maksimal mahasiswa semester 4
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Hiragana/Katakana, 100 Kanji, 600 Kosakata
-														</li>
+														{t.pemulaBenefits.map((b, i) => (
+															<li key={i} className="flex items-start">
+																<span className="text-green-600 mr-2">✓</span>
+																{b}
+															</li>
+														))}
 													</ul>
 												</div>
 											</div>
 											<div className="mt-6 pt-4 border-t border-green-100">
-  <a
-    href="https://forms.gle/Ssa5G2sGYkYkKV7GA"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-  >
-    Daftar Sekarang →
-  </a>
-</div>
+												<a
+													href="https://forms.gle/Ssa5G2sGYkYkKV7GA"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+												>
+													{t.daftarSekarang}
+												</a>
+											</div>
 										</div>
 
 										{/* Dasar 1 (A2-1) */}
 										<div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl border-2 border-green-100 hover:border-green-300 transition-all">
 											<h4 className="text-2xl font-bold text-gray-900 mb-4">
-												Dasar 1 (A2-1)
+												{t.dasar1Title}
 											</h4>
 											<div className="grid md:grid-cols-2 gap-6">
 												<div>
 													<p className="text-gray-700 mb-2">
-														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-1, JLPT N5 menuju N4
+														<strong>{t.tujuan}</strong> {t.dasar1Tujuan}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 5 bulan (±150 jam) | <strong>Kuota:</strong> 15
+														<strong>{t.durasi}</strong> {t.dasar1Durasi} | <strong>{t.kuota}</strong> {t.dasar1Kuota}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Materi:</strong> MNN 1 (16-30), Marugoto A2-1 (1-18), JLPT Taisaku N5, Langoal (98 Kanji + 100 Kanji N4)
+														<strong>{t.materi}</strong> {t.dasar1Materi}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Syarat:</strong> Lulus Kelas Pemula atau Lulus Placement Test.
+														<strong>{t.syarat}</strong> {t.dasar1Syarat}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<i>Placement Test bertujuan untuk mengetahui kemampuan peserta dalam bahasa jepang sehingga peserta dapat mengikuti kelas dengan baik.</i>
+														<i>{t.dasar1SyaratNote}</i>
 													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
-														Rp4.250.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
+														{t.dasar1Price} <span className="text-sm text-gray-600">{t.dasar1PriceNote}</span>
 													</p>
 												</div>
 												<div>
-													<p className="font-semibold text-gray-900 mb-2">Benefit:</p>
+													<p className="font-semibold text-gray-900 mb-2">{t.benefit}</p>
 													<ul className="space-y-2 text-gray-700">
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Komunikasi sehari-hari lebih mendalam
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Diskusi etos kerja & budaya
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Latihan soal JLPT N5 & N4
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota) - maksimal mahasiswa semester 4
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Hiragana/Katakana, 200 Kanji, 1000 Kosakata
-														</li>
+														{t.dasar1Benefits.map((b, i) => (
+															<li key={i} className="flex items-start">
+																<span className="text-green-600 mr-2">✓</span>
+																{b}
+															</li>
+														))}
 													</ul>
 												</div>
-												
+
 											</div>
 											<div className="mt-6 pt-4 border-t border-green-100">
-  <a
-    href="https://forms.gle/4UPQwvmYyBAqXQuu6"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-  >
-    Daftar Sekarang →
-  </a>
-</div>
+												<a
+													href="https://forms.gle/4UPQwvmYyBAqXQuu6"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+												>
+													{t.daftarSekarang}
+												</a>
+											</div>
 										</div>
 
 										{/* Dasar 2 (A2-2) */}
 										<div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl border-2 border-green-100 hover:border-green-300 transition-all">
 											<h4 className="text-2xl font-bold text-gray-900 mb-4">
-												Dasar 2 (A2-2)
+												{t.dasar2Title}
 											</h4>
 											<div className="grid md:grid-cols-2 gap-6">
 												<div>
 													<p className="text-gray-700 mb-2">
-														<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-2, JLPT N4
+														<strong>{t.tujuan}</strong> {t.dasar2Tujuan}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Durasi:</strong> 5 bulan (±150 jam) | <strong>Kuota:</strong> 15
+														<strong>{t.durasi}</strong> {t.dasar2Durasi} | <strong>{t.kuota}</strong> {t.dasar2Kuota}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Materi:</strong> MNN 1 (30-50), Marugoto A2-2 (1-18), JLPT Taisaku N4, Langoal (209 Kanji N4)
+														<strong>{t.materi}</strong> {t.dasar2Materi}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<strong>Syarat:</strong> Lulus Kelas Dasar 1 atau Lulus Placement Test.
+														<strong>{t.syarat}</strong> {t.dasar2Syarat}
 													</p>
 													<p className="text-gray-700 mb-2">
-														<i>Placement Test bertujuan untuk mengetahui kemampuan peserta dalam bahasa jepang sehingga peserta dapat mengikuti kelas dengan baik.</i>
+														<i>{t.dasar2SyaratNote}</i>
 													</p>
 													<p className="text-2xl font-bold text-green-600 mt-4">
-														Rp4.750.000 <span className="text-sm text-gray-600">(+Sudah include pendaftaran)</span>
+														{t.dasar2Price} <span className="text-sm text-gray-600">{t.dasar2PriceNote}</span>
 													</p>
 												</div>
 												<div>
-													<p className="font-semibold text-gray-900 mb-2">Benefit:</p>
+													<p className="font-semibold text-gray-900 mb-2">{t.benefit}</p>
 													<ul className="space-y-2 text-gray-700">
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Komunikasi sehari-hari mendalam & mendetail
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Diskusi etos kerja & budaya
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Latihan soal JLPT dan N4
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Peluang Joint Degree Chuo & Beasiswa Newspaper (Kuota) - maksimal mahasiswa semester 4
-														</li>
-														<li className="flex items-start">
-															<span className="text-green-600 mr-2">✓</span>
-															Hiragana/Katakana, 300 Kanji, 1500 Kosakata
-														</li>
+														{t.dasar2Benefits.map((b, i) => (
+															<li key={i} className="flex items-start">
+																<span className="text-green-600 mr-2">✓</span>
+																{b}
+															</li>
+														))}
 													</ul>
 												</div>
-												
+
 											</div>
 											<div className="mt-6 pt-4 border-t border-green-100">
-  <a
-    href="https://forms.gle/ZGKU4f86uM9iNv3r8"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-  >
-    Daftar Sekarang →
-  </a>
-</div>
+												<a
+													href="https://forms.gle/ZGKU4f86uM9iNv3r8"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+												>
+													{t.daftarSekarang}
+												</a>
+											</div>
 										</div>
 										<div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl border-2 border-green-100 hover:border-green-300 transition-all">
-										<h4 className="text-2xl font-bold text-gray-900 mb-4">Persiapan N4</h4>
+											<h4 className="text-2xl font-bold text-gray-900 mb-4">{t.n4PrepTitle}</h4>
 
-										<div className="grid md:grid-cols-2 gap-6">
-											<div>
-											<p className="text-gray-700 mb-2">
-												<strong>Tujuan:</strong> Berkomunikasi tingkat CEFR A2-2, JLPT N4
-											</p>
-											<p className="text-gray-700 mb-2">
-												<strong>Durasi:</strong> 5 bulan (±150 jam) | <strong>Kuota:</strong> 15 peserta
-											</p>
-											<p className="text-gray-700 mb-2">
-												<strong>Materi:</strong> Minna no Nihongo 1 (Bab 30–50), Marugoto A2-2 (1–18),
-												JLPT Taisaku N4, Langoal (±209 Kanji N4)
-											</p>
-											<p className="text-gray-700 mb-2">
-												<strong>Syarat:</strong> Memiliki Sertifikat Bahasa Jepang N5 atau Setara.
-											</p>
+											<div className="grid md:grid-cols-2 gap-6">
+												<div>
+													<p className="text-gray-700 mb-2">
+														<strong>{t.tujuan}</strong> {t.n4PrepTujuan}
+													</p>
+													<p className="text-gray-700 mb-2">
+														<strong>{t.durasi}</strong> {t.n4PrepDurasi} | <strong>{t.kuota}</strong> {t.n4PrepKuota}
+													</p>
+													<p className="text-gray-700 mb-2">
+														<strong>{t.materi}</strong> {t.n4PrepMateri}
+													</p>
+													<p className="text-gray-700 mb-2">
+														<strong>{t.syarat}</strong> {t.n4PrepSyarat}
+													</p>
 
-											<p className="text-2xl font-bold text-green-600 mt-4">
-												Rp4.000.000{" "}
-												<span className="text-sm text-gray-600">
-												(+ sudah include pendaftaran)
-												</span>
-											</p>
+													<p className="text-2xl font-bold text-green-600 mt-4">
+														{t.n4PrepPrice}{" "}
+														<span className="text-sm text-gray-600">
+															{t.n4PrepPriceNote}
+														</span>
+													</p>
+												</div>
+
+												<div>
+													<p className="font-semibold text-gray-900 mb-2">{t.benefit}</p>
+													<ul className="space-y-2 text-gray-700">
+														{t.n4PrepBenefits.map((b, i) => (
+															<li key={i} className="flex items-start">
+																<span className="text-green-600 mr-2">✓</span>
+																{b}
+															</li>
+														))}
+													</ul>
+												</div>
 											</div>
-
-											<div>
-											<p className="font-semibold text-gray-900 mb-2">Benefit:</p>
-											<ul className="space-y-2 text-gray-700">
-												<li className="flex items-start">
-												<span className="text-green-600 mr-2">✓</span>
-												Komunikasi sehari-hari lebih mendalam & terstruktur
-												</li>
-												<li className="flex items-start">
-												<span className="text-green-600 mr-2">✓</span>
-												Diskusi budaya, etos kerja, dan situasi kerja dasar
-												</li>
-												<li className="flex items-start">
-												<span className="text-green-600 mr-2">✓</span>
-												Drill soal JLPT N4 (moji-goi, bunpou, dokkai, choukai)
-												</li>
-												<li className="flex items-start">
-												<span className="text-green-600 mr-2">✓</span>
-												Simulasi ujian + pembahasan + strategi time management
-												</li>
-												<li className="flex items-start">
-												<span className="text-green-600 mr-2">✓</span>
-												Hiragana/Katakana, ±300 Kanji, ±1500 Kosakata (target)
-												</li>
-											</ul>
+											<div className="mt-6 pt-4 border-t border-green-100">
+												<a
+													href="https://forms.gle/kfWJ9rLnue6z9k5G7"
+													target="_blank"
+													rel="noopener noreferrer"
+													className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+												>
+													{t.daftarSekarang}
+												</a>
 											</div>
-										</div>
-										<div className="mt-6 pt-4 border-t border-green-100">
-  <a
-    href="https://forms.gle/kfWJ9rLnue6z9k5G7"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-  >
-    Daftar Sekarang →
-  </a>
-</div>
 										</div>
 									</div>
-									
+
 								)}
 
 								{/* Tab Content: JLPT */}
@@ -705,38 +653,28 @@ export default function PPBJPage() {
 								<div className="flex flex-col lg:flex-row gap-8 items-start">
 									<div className="flex-1">
 										<h3 className="text-3xl font-bold text-gray-900 mb-4">
-											Program Chuo 3+2 (Joint Degree)
+											{t.chuoTitle}
 										</h3>
 										<h4 className="text-xl font-semibold text-gray-800 mb-4">
-											Kolaborasi Sekolah Vokasi IPB University dan Chuo Joho Institute Jepang
+											{t.chuoSubtitle}
 										</h4>
 										<p className="text-gray-700 text-lg leading-relaxed mb-6">
-											Sekolah Vokasi IPB University membuka kesempatan bagi mahasiswa untuk mengikuti Program Internasional skema 3+2. Program ini dirancang untuk membekali mahasiswa dengan kompetensi akademik, keterampilan kerja, serta pemahaman budaya Jepang.
+											{t.chuoDesc}
 										</p>
 										<div className="space-y-3 mb-8">
-											<div className="flex items-center text-gray-700">
-												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-												<span>Maksimal mahasiswa semester 4</span>
-											</div>
-											<div className="flex items-center text-gray-700">
-												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-												<span>Skema 3 Tahun di IPB + 2.5 Tahun di Jepang</span>
-											</div>
-											<div className="flex items-center text-gray-700">
-												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-												<span>Peluang Beasiswa Newspaper</span>
-											</div>
-											<div className="flex items-center text-gray-700">
-												<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-												<span>Persiapan Karier Global di Jepang</span>
-											</div>
+											{t.chuoBullets.map((bullet, i) => (
+												<div key={i} className="flex items-center text-gray-700">
+													<span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+													<span>{bullet}</span>
+												</div>
+											))}
 										</div>
 										<Link
 											href="/programs/cmld4f2x2000004jvi2utogg4"
 											target="_blank"
 											className="inline-flex items-center px-8 py-4 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all transform hover:scale-105 shadow-lg group"
 										>
-											Lihat Detail Program
+											{t.chuoBtn}
 											<span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
 										</Link>
 									</div>
@@ -797,58 +735,48 @@ export default function PPBJPage() {
 
 				{/* Teachers Section */}
 				<section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Profil Tim Pengajar
-          </h2>
-        </div>
+					<div className="container mx-auto px-4">
+						<div className="text-center mb-16">
+							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
+								{t.teachersTitle}
+							</h2>
+						</div>
 
-        <div className="max-w-3xl mx-auto space-y-8">
-          {/* Gambar Tim Pengajar */}
-         <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-  <div className="relative w-full aspect-video">
-    <Image
-      src="/images/ppbj/pengajar.webp"
-      alt="Tim Pengajar Pusat Bahasa Sekolah Vokasi IPB"
-      fill
-      sizes="(max-width: 768px) 100vw, 1024px"
-      quality={100}
-      className="object-contain"
-      priority={false}
-    />
-  </div>
-</div>
+						<div className="max-w-3xl mx-auto space-y-8">
+							{/* Gambar Tim Pengajar */}
+							<div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+								<div className="relative w-full aspect-video">
+									<Image
+										src="/images/ppbj/pengajar.webp"
+										alt="Tim Pengajar Pusat Bahasa Sekolah Vokasi IPB"
+										fill
+										sizes="(max-width: 768px) 100vw, 1024px"
+										quality={100}
+										className="object-contain"
+										priority={false}
+									/>
+								</div>
+							</div>
 
-          {/* Deskripsi */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg">
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Pengajar pada pelatihan bahasa Jepang ini terdiri dari para
-                pengajar profesional dengan pengalaman mengajar bahasa Jepang di
-                lembaga pendidikan bahasa Jepang formal dan informal, dengan
-                pengalaman minimal selama <strong>15 tahun</strong>. Tim pengajar
-                terdiri atas 5 orang pengajar yang masing-masing berkewarganegaraan
-                Indonesia serta 1 orang pengajar dengan kewarganegaraan Jepang (
-                <strong>Native Speaker</strong>). Dengan begitu diharapkan dapat
-                memperkaya proses pembelajaran dan dapat memberikan kontribusi yang
-                signifikan terhadap pengalaman belajar peserta pelatihan.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+							{/* Deskripsi */}
+							<div className="max-w-4xl mx-auto">
+								<div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg">
+									<p className="text-gray-700 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t.teachersDesc }} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
 				{/* Testimonials */}
 				<section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
 					<div className="container mx-auto px-4">
 						<div className="text-center mb-16">
 							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
-								Apa Kata Mereka?
+								{t.testiTitle}
 							</h2>
 							<p className="text-lg text-gray-600 max-w-2xl mx-auto">
-								Testimoni dari peserta PPBJ yang telah merasakan manfaat program kami
+								{t.testiDesc}
 							</p>
 						</div>
 
@@ -874,10 +802,10 @@ export default function PPBJPage() {
 								</div>
 								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Jonathan Devin Sanjaya</h4>
-									<p className="text-sm text-gray-600">Peserta kelas pemula - SMA Pelita Harapan</p>
+									<p className="text-sm text-gray-600">{t.testi1Role}</p>
 								</div>
 								<p className="text-gray-700 italic">
-									"Pembelajaran di PPBJ sangat membantu saya memahami bahasa Jepang. Guru-guru nya asik, kelasnya aktif dan suportif, sehingga materi mudah dipahami. Les ini sangat bermanfaat untuk persiapan komunikasi di jepang dan rencana melanjutkan studi."
+									{t.testi1Text}
 								</p>
 							</div>
 
@@ -902,10 +830,10 @@ export default function PPBJPage() {
 								</div>
 								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Boy Mranata Sinaga</h4>
-									<p className="text-sm text-gray-600">Peserta kelas dasar 1 - Mahasiswa SV IPB</p>
+									<p className="text-sm text-gray-600">{t.testi2Role}</p>
 								</div>
 								<p className="text-gray-700 italic">
-									"Belajar Nihongo di PPBJ terasa terstruktur dan menyenangkan. Materi disampaikan secara runtut dan interaktif, serta didukung rekaman dan materi di classroom sehingga tetap mudah diikuti meskipun saya memiliki jadwal perkuliahan yang padat sebagai mahasiswa. Saya mengikuti les ini sebagai persiapan untuk mengikuti program 3+2 yang diselenggarakan oleh SV IPB."
+									{t.testi2Text}
 								</p>
 							</div>
 
@@ -924,10 +852,10 @@ export default function PPBJPage() {
 								</div>
 								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Ernesto Bagus</h4>
-									<p className="text-sm text-gray-600">Peserta Program 3+2, Penerima beasiswa Newspaper</p>
+									<p className="text-sm text-gray-600">{t.testi3Role}</p>
 								</div>
 								<p className="text-gray-700 italic">
-									"Awal saya ikuti program ini dengan target lulus N4. Materinya terstruktur dan jadwalnya konsisten, dan sensei selalu sabar membimbing. Suasana kelas interaktif dan menyenangkan, didukung latihan soal serta percakapan yang meningkatkan kemampuan bahasa jepang. Program ini benar-benar mendukung saya untuk mencapai target lulus N4 sekaligus mempersiapkan diri untuk kesempatan akademik maupun professional di Jepang."
+									{t.testi3Text}
 								</p>
 							</div>
 
@@ -952,10 +880,10 @@ export default function PPBJPage() {
 								</div>
 								<div className="mb-4 text-center">
 									<h4 className="font-bold text-gray-900">Purwoko Hedianto</h4>
-									<p className="text-sm text-gray-600">Peserta kelas dasar 1 - Dokter Hewan</p>
+									<p className="text-sm text-gray-600">{t.testi4Role}</p>
 								</div>
 								<p className="text-gray-700 italic">
-									"Saya belajar bahasa jepang di PPBJ SV IPB dengan pengajar professional termasuk native speaker, sehingga proses belajar menarik dan menyenangkan. Jika kesulitan, saya bisa langsung bertanya kepada sensei dan mendapatkan penjelasan yang jelas. Pembelajaran online fleksibel, didukung latihan dan percakapan yang meningkatkan kemampuan berbicara, sekaligus mengenai budaya jepang, mempersiapkan saya untuk berwisata, bekerja, atau melanjutkan studi ke Jepang."
+									{t.testi4Text}
 								</p>
 							</div>
 						</div>
@@ -967,10 +895,10 @@ export default function PPBJPage() {
 					<div className="container mx-auto px-4">
 						<div className="text-center mb-16">
 							<h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
-								Kenali Kami Lebih Lanjut
+								{t.socialTitle}
 							</h2>
 							<p className="text-lg text-gray-600 max-w-2xl mx-auto">
-								Ikuti aktivitas dan informasi terbaru seputar PPBJ di media sosial kami
+								{t.socialDesc}
 							</p>
 						</div>
 
@@ -988,24 +916,24 @@ export default function PPBJPage() {
 								<h3 className="text-2xl font-bold text-gray-900 mb-2">Instagram</h3>
 								<p className="text-gray-600 mb-4 font-medium">@ppbj_svipb</p>
 								<span className="text-sm font-semibold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
-									Klik untuk follow →
+									{t.socialIgCta}
 								</span>
 							</a>
-							
+
 							<a
-							href="https://wa.me/6282299273968?text=Halo%20admin%2C%20saya%20ingin%20bertanya%20tentang%20PPBJ."
-							target="_blank"
-							rel="noopener noreferrer"
-							className="group bg-gradient-to-br from-green-50 via-emerald-50 to-lime-50 p-8 rounded-2xl shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center"
+								href="https://wa.me/6282299273968?text=Halo%20admin%2C%20saya%20ingin%20bertanya%20tentang%20PPBJ."
+								target="_blank"
+								rel="noopener noreferrer"
+								className="group bg-gradient-to-br from-green-50 via-emerald-50 to-lime-50 p-8 rounded-2xl shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center text-center"
 							>
-							<div className="w-20 h-20 bg-gradient-to-br from-green-500 via-emerald-500 to-lime-500 rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
-								<MessageCircle className="w-10 h-10 text-white" />
-							</div>
-							<h3 className="text-2xl font-bold text-gray-900 mb-2">WhatsApp</h3>
-							<p className="text-gray-600 mb-4 font-medium">Chat Admin</p>
-							<span className="text-sm font-semibold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
-								Klik untuk chat →
-							</span>
+								<div className="w-20 h-20 bg-gradient-to-br from-green-500 via-emerald-500 to-lime-500 rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
+									<MessageCircle className="w-10 h-10 text-white" />
+								</div>
+								<h3 className="text-2xl font-bold text-gray-900 mb-2">WhatsApp</h3>
+								<p className="text-gray-600 mb-4 font-medium">{t.socialWaLabel}</p>
+								<span className="text-sm font-semibold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
+									{t.socialWaCta}
+								</span>
 							</a>
 
 
@@ -1020,10 +948,10 @@ export default function PPBJPage() {
 								<h3 className="text-2xl font-bold text-gray-900 mb-2">Email</h3>
 								<p className="text-gray-600 mb-4 font-medium">kbj.svipb@gmail.com</p>
 								<span className="text-sm font-semibold text-blue-600 group-hover:opacity-80 transition-opacity">
-									Klik untuk kirim email →
+									{t.socialEmailCta}
 								</span>
 							</a>
-							
+
 						</div>
 					</div>
 				</section>
@@ -1035,17 +963,17 @@ export default function PPBJPage() {
 				>
 					<div className="container mx-auto px-4 text-center scroll-smooth">
 						<h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-							Kuota Terbatas (Maksimal 20 orang per kelas). Amankan kursimu sekarang!
+							{t.ctaTitle}
 						</h2>
 						<p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-							Raih kesempatan emas untuk belajar bahasa Jepang dengan kurikulum standar internasional dan pengajar berpengalaman
+							{t.ctaDesc}
 						</p>
 						<button							// href="https://forms.gle/JDx5wEpHD6T4SciC7"
 							onClick={scrollToPrograms}
 							// target="_blank"
 							className="inline-block px-10 py-5 bg-white text-blue-700 font-bold text-lg rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl"
 						>
-							Daftar Online Sekarang
+							{t.ctaBtn}
 						</button>
 					</div>
 				</section>
